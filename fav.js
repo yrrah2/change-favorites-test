@@ -12,7 +12,7 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-    ev.dataTransfer.setData("list", [$(ev.target).html(),$(ev.target)]);
+    ev.dataTransfer.setData("list", [$("ev.target").html(),$("ev.target")]);
 }
 
 function drop(ev) {
