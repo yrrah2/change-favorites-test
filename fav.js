@@ -10,7 +10,7 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-    var data =  $(ev.target).html());
+    var data = $(ev.target).html();
 }
 
 function drop(ev) {
