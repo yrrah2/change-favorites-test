@@ -5,13 +5,13 @@ $("#favoriteOptionsBox").val(localStorage.favorites);
 
 for(i=0; i<favorites.length; i++){$("<p>test</p>").appendTo(tab.content)} //testing for loop
 
-var textarea = $("<textarea></textarea>").css({
-  "font-size": 12,
-  position: "absolute",
-  top: 35, bottom: 35,
-  width: "calc(100% - 20px)", margin: 0, padding: "4px", border: "1px solid black",
-  left: 5, right: 5
-}).appendTo(tab.content);
+//var textarea = $("<textarea></textarea>").css({
+//  "font-size": 12,
+//  position: "absolute",
+//  top: 35, bottom: 35,
+//  width: "calc(100% - 20px)", margin: 0, padding: "4px", border: "1px solid black",
+//  left: 5, right: 5
+//}).appendTo(tab.content);
 
 var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
   position: "absolute",
