@@ -5,20 +5,22 @@ $("#favoriteOptionsBox").val(localStorage.favorites);
 
 for(i=0; i<favorites.length; i++){var favButton = "<div draggable=\"true\" style=\"display:inline-block;\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\" ondragstart=\"drag(event)\">"+favorites[i]+"</div>";$(favButton).appendTo(tab.content)} //creating list of boards
 
+var originalData = "";
+
 function allowDrop(ev) {
     ev.preventDefault();
 }
 
 function drag(ev) {
     ev.dataTransfer.setData("text", $(ev.target).html());
-    var originalDrag = $(ev.target);
+    originalData.dataTransfer.setData("text", $(ev.target););
 }
 
 function drop(ev) {
     ev.preventDefault();
 //  var data = $(ev.target).html();
     var data = ev.dataTransfer.getData("text");
-    $(originalDrag).remove()
+    $(originalData.dataTransfer.getData("text")).remove()
     $(ev.target).append(data);
 }
 
