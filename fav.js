@@ -3,8 +3,9 @@ var favorites = JSON.parse(localStorage.favorites);
 var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 $("#favoriteOptionsBox").val(localStorage.favorites);
 
-for(i=0; i<favorites.length; i++){var favButton = "<div style=\"display:inline-block;\">"+favorites[i]+" </div>";$(favButton).appendTo(tab.content)} //creating list of boards
+for(i=0; i<favorites.length; i++){var favButton = "<div style=\"display:inline-block;\" onclick=\"favDrag()\">"+favorites[i]+"</div>";$(favButton).appendTo(tab.content)} //creating list of boards
 
+var favDrag = function(){};
 
 //var textarea = $("<textarea></textarea>").css({
 //  "font-size": 12,
