@@ -12,13 +12,13 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-    ev.dataTransfer.setData("list", [$("ev.target").html(),$("ev.target")]);
+    ev.dataTransfer.setData("array", [$("ev.target").html(),$("ev.target")]);
 }
 
 function drop(ev) {
     ev.preventDefault();
 //  var data = $(ev.target).html();
-    var data = ev.dataTransfer.getData("list");
+    var data = ev.dataTransfer.getData("array");
     alert(data.length); //I tried to use the echo command here ;_;
     $(data[1]).remove()
     $(ev.target).append(data[0]);
