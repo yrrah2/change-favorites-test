@@ -3,8 +3,11 @@ var favorites = JSON.parse(localStorage.favorites);
 var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 $("#favoriteOptionsBox").val(localStorage.favorites);
 
+var favButton = ""; //This allows setting the variable to a string that includes itself the first time
+
 for(i=0; i<favorites.length; i++){var favButton = favButton+"<div>"+favorites[i]+" </div>";} //creating list of boards
 $(favButton).appendTo(tab.content) //appending them to tab after so they dont each go on new line.
+
 //var textarea = $("<textarea></textarea>").css({
 //  "font-size": 12,
 //  position: "absolute",
