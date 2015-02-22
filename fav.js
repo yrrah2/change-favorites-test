@@ -11,12 +11,14 @@ function allowDrop(ev) {
 
 function drag(ev) {
     ev.dataTransfer.setData("text", $(ev.target).html());
+    var originalDrag = $(ev.target);
 }
 
 function drop(ev) {
     ev.preventDefault();
 //  var data = $(ev.target).html();
     var data = ev.dataTransfer.getData("text");
+    $(originalDrag).remove()
     $(ev.target).append(data);
 }
 
