@@ -3,7 +3,7 @@ var favorites = JSON.parse(localStorage.favorites);
 var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 $("#favoriteOptionsBox").val(localStorage.favorites);
 
-for(i=0; i<favorites.length; i++){$("test").appendTo(tab.content)} //testing for loop
+for(i=0; i<favorites.length; i++){$("<p>test</p>").appendTo(tab.content)} //testing for loop
 
 var textarea = $("<textarea></textarea>").css({
   "font-size": 12,
