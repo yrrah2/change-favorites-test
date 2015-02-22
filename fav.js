@@ -3,9 +3,21 @@ var favorites = JSON.parse(localStorage.favorites);
 var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 $("#favoriteOptionsBox").val(localStorage.favorites);
 
-for(i=0; i<favorites.length; i++){var favButton = "<div style=\"display:inline-block;\" onclick=\"favDrag()\">"+favorites[i]+"</div>";$(favButton).appendTo(tab.content)} //creating list of boards
+for(i=0; i<favorites.length; i++){var favButton = "<div style=\"display:inline-block;\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\" ondragstart=\"drag(event)\">"+favorites[i]+"</div>";$(favButton).appendTo(tab.content)} //creating list of boards
 
-var favDrag = function(){};
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
 
 //var textarea = $("<textarea></textarea>").css({
 //  "font-size": 12,
