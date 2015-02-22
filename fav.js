@@ -3,7 +3,9 @@ var favorites = JSON.parse(localStorage.favorites);
 var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 $("#favoriteOptionsBox").val(localStorage.favorites);
 
-for(i=0; i<favorites.length; i++){var favButton = "<div draggable=\"true\" style=\"display:inline-block;\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\" ondragstart=\"drag(event)\">"+favorites[i]+"</div>";$(favButton).appendTo(tab.content)} //creating list of boards
+for(i=0; i<favorites.length; i++){
+  var favButton = "<div draggable=\"true\" style=\"display:inline-block;\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\" ondragstart=\"drag(event)\">"+favorites[i]+"</div>";
+  $(favButton).appendTo(tab.content);} //creating list of boards
 
 var originalData = "";
 
@@ -51,7 +53,7 @@ var apply_fav = function() {
         .addClass("fav-tab")
         .text(localStorage.favorites)
       );
-  }
+  };
 
   if (/immediate()/.test(localStorage.favorites)) {
     proc(); // Apply the script immediately
