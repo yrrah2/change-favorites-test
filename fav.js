@@ -56,13 +56,13 @@ var apply_fav = function() {
   }
 };
 
-var update_textarea = function() {
-  if (!localStorage.favorites) {
-    textarea.text()}
-  else {
-    textarea.text(localStorage.favorites);
-    apply_fav();
-  }
-};
+//var update_textarea = function() {
+//  if (!localStorage.favorites) {
+//    textarea.text()}
+//  else {
+//    textarea.text(localStorage.favorites);
+//    apply_fav();
+//  }
+//};
 
-update_textarea();
+//update_textarea();
