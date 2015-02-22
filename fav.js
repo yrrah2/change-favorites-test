@@ -19,6 +19,7 @@ function drop(ev) {
     ev.preventDefault();
 //  var data = $(ev.target).html();
     var data = ev.dataTransfer.getData("array");
+    alert(data); //I tried to use the echo command here ;_;
     $(data[1]).remove()
     $(ev.target).append(data[0]);
 }
