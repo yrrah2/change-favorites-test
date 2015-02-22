@@ -12,16 +12,15 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-    ev.dataTransfer.setData("text", $(ev.target).html());
-    originalData.dataTransfer.setData("text", $(ev.target));
+    ev.dataTransfer.setData("array", [$(ev.target).html(),$(ev.target)]);
 }
 
 function drop(ev) {
     ev.preventDefault();
 //  var data = $(ev.target).html();
-    var data = ev.dataTransfer.getData("text");
-    $(originalData.dataTransfer.getData("text")).remove()
-    $(ev.target).append(data);
+    var data = ev.dataTransfer.getData("arry");
+    $(data[1]).remove()
+    $(ev.target).append(data[0]);
 }
 
 //var textarea = $("<textarea></textarea>").css({
