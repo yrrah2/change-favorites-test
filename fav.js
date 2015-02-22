@@ -10,11 +10,13 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-    var data = $(ev.target).html();
+    ev.dataTransfer.setData("text", ev.target.id);
 }
 
 function drop(ev) {
     ev.preventDefault();
+//    var data = $(ev.target).html();
+    var data = ev.dataTransfer.getData("text");
     $(ev.target).append(data);
 }
 
