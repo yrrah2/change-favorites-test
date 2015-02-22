@@ -13,7 +13,7 @@ function allowDrop(ev) {
 
 function drag(ev) {
     ev.dataTransfer.setData("text", $(ev.target).html());
-    originalData.dataTransfer.setData("text", $(ev.target););
+    originalData.dataTransfer.setData("text", $(ev.target));
 }
 
 function drop(ev) {
