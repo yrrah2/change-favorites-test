@@ -17,7 +17,6 @@ function drop(ev) {
     ev.preventDefault();
 //  var data = $(ev.target).html();
     var data = ev.dataTransfer.getData("text");
-    alert(data);
     $(ev.target).append(data);
 }
 
