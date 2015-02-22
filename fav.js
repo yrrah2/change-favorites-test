@@ -18,7 +18,7 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
 //  var data = $(ev.target).html();
-    var data = ev.dataTransfer.getData("arry");
+    var data = ev.dataTransfer.getData("array");
     $(data[1]).remove()
     $(ev.target).append(data[0]);
 }
