@@ -3,28 +3,18 @@ var favorites = JSON.parse(localStorage.favorites);
 var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 $("#favoriteOptionsBox").val(localStorage.favorites);
 
-function allowDrop(ev) {
-    ev.preventDefault();
-}
+$("#sortable").sortable();
 
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-}
+favListStart = "<ul id=\"sortable\">"
+$(favListStart).appendTo(tab.content);
 
 for(i=0; i<favorites.length; i++){
-    var favButton = "<div id=\"div1\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\"><div id=\"drag1\" draggable=\"true\" ondragstart=\"drag(event)\" draggable=\"true\" style=\"display:inline-block;\" >"+favorites[i]+"</div></div>";
-    var seperator = "<span class=\"separator\"> / </span>"
+    var favButton = "<li>"+favorites[i]+"</li>";
     $(favButton).appendTo(tab.content);
-    if(i+1<favorites.length){$(seperator).appendTo(tab.content);}
 } //creating list of boards
 
-var originalData = "";
+favListEnd = "</ul>"
+$(favListEnd).appendTo(tab.content);
 
 //var textarea = $("<textarea></textarea>").css({
 //  "font-size": 12,
