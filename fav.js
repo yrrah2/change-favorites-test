@@ -9,7 +9,7 @@ var i = 0;
 var favList = [];
 var helpMessage = "";
 helpMessage = helpMessage+"Drag the boards to sort them.";
-$(helpMessage).appendTo(tab.content);
+$(tab.content).append(helpMessage);
 
 for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
