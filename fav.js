@@ -18,9 +18,11 @@ function drop(ev) {
 }
 
 for(i=0; i<favorites.length; i++){
-  var favButton = "<div id=\"div1\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\"><div id=\"drag1\" draggable=\"true\" ondragstart=\"drag(event)\" draggable=\"true\" style=\"display:inline-block;\" >"+favorites[i]+"</div></div>";
-
-  $(favButton).appendTo(tab.content);} //creating list of boards
+    var favButton = "<div id=\"div1\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\"><div id=\"drag1\" draggable=\"true\" ondragstart=\"drag(event)\" draggable=\"true\" style=\"display:inline-block;\" >"+favorites[i]+"</div></div>";
+    var seperator = "<span class=\"separator\"> / </span>"
+    $(favButton).appendTo(tab.content);
+    if(i+1<favorites.length){$(seperator).appendTo(tab.content);}
+} //creating list of boards
 
 var originalData = "";
 
