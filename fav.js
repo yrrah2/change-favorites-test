@@ -7,7 +7,7 @@ $("#favoriteOptionsBox").val(localStorage.favorites);
 
 var i = 0;
 var favList = [];
-var helpMessage = "Drag the boards to rearrange them.";
+var helpMessage = ["Drag the boards to rearrange them."];
 $(helpMessage).appendTo(tab.content);
 
 for(i=0; i<favorites.length; i++){
