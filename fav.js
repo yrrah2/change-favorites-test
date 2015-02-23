@@ -13,10 +13,10 @@ for(i=0; i<favorites.length+1; i++){
     if(i===0){
         favList = favList+"<ul id=\"sortable\">"
     }
-    if(i>0){
+    if(i>1){
         favList = favList+"<li>"+favorites[i]+"</li>"
     }
-    if(i+1>favorites.length+1){
+    if(i>favorites.length){
         favList = favList+"</ul>"
     }
 } //creating list of boards
