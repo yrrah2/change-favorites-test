@@ -4,7 +4,7 @@ var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 $("#favoriteOptionsBox").val(localStorage.favorites);
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
-$(".ui-sortable-handle").css('-ms-touch-action','none').css('touch-action','none')
+$("#sortable").css('-ms-touch-action','none').css('touch-action','none')
 
 var i = 0;
 var favList = [];
