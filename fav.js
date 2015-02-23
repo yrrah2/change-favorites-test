@@ -8,6 +8,7 @@ $("#favoriteOptionsBox").val(localStorage.favorites);
 var i = 0;
 var favList = [];
 var helpMessage = "";
+helpMessage = "Drag the boards to sort them.";
 $(helpMessage).appendTo(tab.content);
 
 for(i=0; i<favorites.length; i++){
