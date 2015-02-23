@@ -6,16 +6,20 @@ $("#favoriteOptionsBox").val(localStorage.favorites);
 $("#sortable").sortable();
 $(".ui-sortable-handle").css('-ms-touch-action','none').css('touch-action','none')
 
-favListStart = "<ul id=\"sortable\">"
-$(favListStart).appendTo(tab.content);
-
-for(i=0; i<favorites.length; i++){
-    var favButton = "<li>"+favorites[i]+"</li>";
-    $(favButton).appendTo(tab.content);
+for(i=0; i<favorites.length+2; i++){
+    if(i=0){
+        var favListStart = "<ul id=\"sortable\">"
+        $(favListStart).appendTo(tab.content)
+    };
+    if(i>0){
+        var favButton = "<li>"+favorites[i]+"</li>";
+        $(favButton).appendTo(tab.content)
+    };
+    if(i+1>favorites.length+1){
+        var favListEnd = "</ul>"
+        $(favListEnd).appendTo(tab.content);
+    }
 } //creating list of boards
-
-favListEnd = "</ul>"
-$(favListEnd).appendTo(tab.content);
 
 //var textarea = $("<textarea></textarea>").css({
 //  "font-size": 12,
