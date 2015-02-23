@@ -15,7 +15,7 @@ for(i=0; i<favorites.length+1; i++){
         $(favListStart).appendTo(favList);
     }
     if(i>0){
-        var favButton = "<li>"+favorites[i]+"</li>";
+        var favBoards = "<li>"+favorites[i]+"</li>";
         $(favBoards).appendTo(favList);
     }
     if(i+1>favorites.length+1){
