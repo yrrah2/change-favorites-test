@@ -13,7 +13,7 @@ for(i=0; i<favorites.length+1; i++){
     if(i===0){
         favList = favList+"<ul id=\"sortable\">";
     }
-    if(favorites.length+1>i>=1){
+    if(1<=i<=favorites.length){
         favList = favList+"<li>"+favorites[i-1]+"</li>";
     }
     if(i>favorites.length){
