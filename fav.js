@@ -4,6 +4,7 @@ var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 $("#favoriteOptionsBox").val(localStorage.favorites);
 
 $("#sortable").sortable();
+$(".ui-sortable-handle").css('-ms-touch-action','none').css('touch-action','none')
 
 favListStart = "<ul id=\"sortable\">"
 $(favListStart).appendTo(tab.content);
