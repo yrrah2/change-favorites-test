@@ -13,11 +13,11 @@ $(tab.content).append(helpMessage);
 
 for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
-        favList = favList+"<div id=\"sortable\">";
+        favList = favList+"<ul style=\"list-style-type: none;\" id=\"sortable\">";
     }
-    favList = favList+"<div style=\"display: inline;\">"+favorites[i]+"</div><span> / </span>";
+    favList = favList+"<li style=\"display: inline;\">"+favorites[i]+"</li>";
     if(i==favorites.length){ //This triggers on last run of loop
-        favList = favList+"</div>";
+        favList = favList+"</ul>";
     }
 } //creating list of boards
 
@@ -31,15 +31,13 @@ var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
     width: "calc(100% - 10px)",
     left: 5, right: 5
 }).click(function() {
-    //var favStor = $(".ui-sortable").html().replace("<div style=\"display: inline;\">","<div>"); //Slowly transforming html list into localStorage.favorites format
-    //for(i=0; i<favorites.length-1; i++){
-    //    favStor = favStor.replace("</div><span> / </span><div class=\"\" style=\"display: inline;\">","\",\"");
-    //}
-    //
-    //favStor = favStor.replace("</div>","");
-    //favStor = favStor.replace("<div>","");
-    //localStorage.favorites = "[\"" + favStor + "\"]";
-    localStorage.favorites = $(".ui-sortable").html();
+    var favStor = $(".ui-sortable").html().replace("<li class=\"\" style=\"\">","<li>"); //Slowly transforming html list into localStorage.favorites format
+    for(i=0; i<favorites.length-1; i++){
+        favStor = favStor.replace("</li><li>","\",\"");
+    }
+    favStor = favStor.replace("</li>","");
+    favStor = favStor.replace("<li>","");
+    localStorage.favorites = "[\"" + favStor + "\"]";
     document.location.reload();
 }).appendTo(tab.content);
 
