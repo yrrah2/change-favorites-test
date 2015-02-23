@@ -13,11 +13,11 @@ $(tab.content).append(helpMessage);
 
 for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
-        favList = favList+"<ul style=\"list-style-type: none;\" id=\"sortable\">";
+        favList = favList+"<div style=\"list-style-type: none;\" id=\"sortable\">";
     }
     favList = favList+"<div>"+favorites[i]+"</div>";
     if(i==favorites.length){ //This triggers on last run of loop
-        favList = favList+"</ul>";
+        favList = favList+"</div>";
     }
 } //creating list of boards
 
