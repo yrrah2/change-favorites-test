@@ -7,21 +7,24 @@ $("#sortable").sortable(); //Making all objects with sortable id use the sortabl
 $(".ui-sortable-handle").css('-ms-touch-action','none').css('touch-action','none')
 
 var i = 0;
+var favList = [];
 
 for(i=0; i<favorites.length+1; i++){
     if(i===0){
         var favListStart = "<ul id=\"sortable\">";
-        $(favListStart).appendTo(tab.content);
+        $(favListStart).appendTo(favList);
     }
     if(i>0){
         var favButton = "<li>"+favorites[i]+"</li>";
-        $(favButton).appendTo(tab.content);
+        $(favBoards).appendTo(favList);
     }
     if(i+1>favorites.length+1){
         var favListEnd = "</ul>";
-        $(favListEnd).appendTo(tab.content);
+        $(favListEnd).appendTo(favList);
     }
 } //creating list of boards
+
+$(favList).appendTo(tab.content);
 
 //var textarea = $("<textarea></textarea>").css({
 //  "font-size": 12,
