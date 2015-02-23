@@ -15,7 +15,7 @@ for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
         favList = favList+"<div style=\"list-style-type: none;\" id=\"sortable\">";
     }
-    favList = favList+"<div>"+favorites[i]+"</div>"+"<span> / </span>";
+    favList = favList+"<div>"+favorites[i]+"</div>";
     if(i==favorites.length){ //This triggers on last run of loop
         favList = favList+"</div>";
     }
@@ -34,7 +34,6 @@ var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
     var favStor = $(".ui-sortable").html().replace("<div class=\"\" style=\"\">","<div>"); //Slowly transforming html list into localStorage.favorites format
     for(i=0; i<favorites.length-1; i++){
         favStor = favStor.replace("</div><div>","\",\"");
-        favStor = favStor.replace("<span> / </span>","");
     }
     favStor = favStor.replace("</div>","");
     favStor = favStor.replace("<div>","");
