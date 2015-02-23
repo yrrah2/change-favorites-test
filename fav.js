@@ -31,6 +31,10 @@ $("#sortable").sortable(); //Making all objects with sortable id use the sortabl
 //  left: 5, right: 5
 //}).appendTo(tab.content);
 
+
+var favList = $(".ui-sortable").html().replace("<li class=\"\" style=\"\">","");
+
+
 var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
   position: "absolute",
   height: 25, bottom: 5,
