@@ -9,15 +9,15 @@ $("#favoriteOptionsBox").val(localStorage.favorites);
 var i = 0;
 var favList = [];
 
-for(i=0; i<favorites.length+1; i++){
-    if(i===0){
+for(i=0; i<favorites.length; i++){
+    if(i===0){ //This triggers on first run of loop
         favList = favList+"<ul id=\"sortable\">";
     }
-    if(i<=favorites.length){
-        alert(i)
-        favList = favList+"<li>"+favorites[i]+"</li>";
-    }
-    if(i>favorites.length){
+    
+    alert(i)
+    favList = favList+"<li>"+favorites[i]+"</li>";
+    
+    if(i==favorites.length){ //This triggers on last run of loop
         favList = favList+"</ul>";
     }
 } //creating list of boards
