@@ -14,7 +14,8 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-    ev.dataTransfer.setData("array", [$("ev.target").html(),$("ev.target")]);
+  var dragContent = [$("ev.target").html(), $("ev.target")];
+  ev.dataTransfer.setData("array",dragContent);
 }
 
 function drop(ev) {
