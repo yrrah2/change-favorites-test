@@ -15,6 +15,7 @@ function allowDrop(ev) {
 
 function drag(ev) {
   var dragContent = [$("ev.target").html(), $("ev.target")];
+  alert(dragContent)
   ev.dataTransfer.setData("array",dragContent);
 }
 
