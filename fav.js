@@ -6,8 +6,6 @@ var favorites = JSON.parse(localStorage.favorites);
 var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 $("#favoriteOptionsBox").val(localStorage.favorites);
 
-$("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
-
 var i = 0;
 var favList = [];
 
@@ -24,6 +22,8 @@ for(i=0; i<favorites.length+1; i++){
 } //creating list of boards
 
 $(favList).appendTo(tab.content);
+
+$("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
 
 //var textarea = $("<textarea></textarea>").css({
 //  "font-size": 12,
