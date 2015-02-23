@@ -4,30 +4,10 @@ var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 $("#favoriteOptionsBox").val(localStorage.favorites);
 
 for(i=0; i<favorites.length; i++){
-  var favButton = "<div draggable=\"true\" style=\"display:inline-block;\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\" ondragstart=\"drag(event)\">"+favorites[i]+"</div> /";
+  var favButton = "<div draggable=\"true\" style=\"display:inline-block;\">"+favorites[i]+"</div> /";
   $(favButton).appendTo(tab.content);} //creating list of boards
 
 var originalData = "";
-
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function drag(ev) {
-  var dragContent = [$(ev.target).html(), $(ev.target)];
-  alert(this)
-  ev.dataTransfer.setData("array",dragContent);
-}
-
-function drop(ev) {
-    ev.preventDefault();
-//  var data = $(ev.target).html();
-    var data = ev.dataTransfer.getData("array");
-    alert(ev.dataTransfer.getData("array"));
-    alert(data.length); //I tried to use the echo command here ;_;
-    $(data[1]).remove();
-    $(ev.target).append(data[0]);
-}
 
 //var textarea = $("<textarea></textarea>").css({
 //  "font-size": 12,
