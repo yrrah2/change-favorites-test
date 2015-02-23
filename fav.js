@@ -31,20 +31,18 @@ $("#sortable").sortable(); //Making all objects with sortable id use the sortabl
 //  left: 5, right: 5
 //}).appendTo(tab.content);
 
-
-var favList = $(".ui-sortable").html().replace("<li class=\"\" style=\"\">","");
-for(i=0; i<favorites.length-1; i++){
-    favList = favList.replace("</li><li>",",");
-};
-
 var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
-  position: "absolute",
-  height: 25, bottom: 5,
-  width: "calc(100% - 10px)",
-  left: 5, right: 5
+    position: "absolute",
+    height: 25, bottom: 5,
+    width: "calc(100% - 10px)",
+    left: 5, right: 5
 }).click(function() {
-  localStorage.favorites = textarea.val();
-  document.location.reload();
+    var favStor = $(".ui-sortable").html().replace("<li class=\"\" style=\"\">","");
+    for(i=0; i<favorites.length-1; i++){
+        favStor = favStor.replace("</li><li>",",");
+    };
+    localStorage.favorites = textarea.val();
+    document.location.reload();
 }).appendTo(tab.content);
 
 var apply_fav = function() {
