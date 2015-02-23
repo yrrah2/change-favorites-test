@@ -37,7 +37,7 @@ var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
     width: "calc(100% - 10px)",
     left: 5, right: 5
 }).click(function() {
-    var favStor = $(".ui-sortable").html().replace("<li class=\"\" style=\"\">",",");
+    var favStor = $(".ui-sortable").html().replace("<li class=\"\" style=\"\">","\",\"");
     for(i=0; i<favorites.length-1; i++){
         favStor = favStor.replace("</li><li>",",");
     };
@@ -50,7 +50,7 @@ var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
         favStor = favStor.substring(1);
     };
     alert(favStor);
-    localStorage.favorites = "\"["+favStor+"]\"";
+    localStorage.favorites = "["+favStor+"]";
 }).appendTo(tab.content);
 
 var apply_fav = function() {
