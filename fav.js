@@ -36,8 +36,8 @@ var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
     };
     favStor = favStor.replace("</li>","");
     favStor = favStor.replace("<li>","");
-    localStorage.favorites = "[\"" + favStor + "\"]"
-    document.location.reload();
+    localStorage.favorites = "[\"" + favStor + "\"]";
+    document.location.reload()
 }).appendTo(tab.content);
 
 var apply_fav = function() {
