@@ -8,12 +8,12 @@ $("#favoriteOptionsBox").val(localStorage.favorites);
 var i = 0;
 var favList = [];
 var helpMessage = "";
-helpMessage = helpMessage+"Drag the boards to sort them.";
+helpMessage = "<span>Drag the boards to sort them.</span>";
 $(tab.content).append(helpMessage);
 
 for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
-        favList = favList+"<ul id=\"sortable\">";
+        favList = favList+"<ul style=\"list-style-type: none;\" id=\"sortable\">";
     }
     favList = favList+"<li>"+favorites[i]+"</li>";
     if(i==favorites.length){ //This triggers on last run of loop
