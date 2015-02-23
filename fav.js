@@ -1,10 +1,12 @@
+load_js("//code.jquery.com/jquery-1.10.2.js");
+load_js("//code.jquery.com/ui/1.11.3/jquery-ui.js");
+
 var favorites = JSON.parse(localStorage.favorites);
 
 var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 $("#favoriteOptionsBox").val(localStorage.favorites);
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
-$("#sortable").css('-ms-touch-action','none').css('touch-action','none')
 
 var i = 0;
 var favList = [];
