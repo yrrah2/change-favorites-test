@@ -41,6 +41,9 @@ var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
     for(i=0; i<favorites.length-1; i++){
         favStor = favStor.replace("</li><li>",",");
     };
+    for(i=0; i<favorites.length-1; i++){
+        favStor = favStor.replace("</li><li class=\"\" style=\"\">",",");
+    };
     alert(favStor);
     localStorage.favorites = textarea.val();
 }).appendTo(tab.content);
