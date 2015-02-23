@@ -41,8 +41,8 @@ var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
     for(i=0; i<favorites.length-1; i++){
         favStor = favStor.replace("</li><li>",",");
     };
+    alert(favStor);
     localStorage.favorites = textarea.val();
-    document.location.reload();
 }).appendTo(tab.content);
 
 var apply_fav = function() {
