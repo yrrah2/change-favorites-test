@@ -4,7 +4,7 @@ var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 $("#favoriteOptionsBox").val(localStorage.favorites);
 
 for(i=0; i<favorites.length; i++){
-  var favButton = "<div draggable=\"true\" style=\"display:inline-block;\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\" ondragstart=\"drag(event)\">"+favorites[i]+"</div>";
+  var favButton = "<div draggable=\"true\" style=\"display:inline-block;\" ondrop=\"drop(event)\" ondragover=\"allowDrop(event)\" ondragstart=\"drag(event)\">"+favorites[i]+"</div> /";
   $(favButton).appendTo(tab.content);} //creating list of boards
 
 var originalData = "";
@@ -14,7 +14,7 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-  var dragContent = [$("ev.target").html(), $("ev.target")];
+  var dragContent = [$(ev.target).html(), $(ev.target)];
   alert(this)
   ev.dataTransfer.setData("array",dragContent);
 }
