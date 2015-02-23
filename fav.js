@@ -3,8 +3,10 @@ var favorites = JSON.parse(localStorage.favorites);
 var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 $("#favoriteOptionsBox").val(localStorage.favorites);
 
-$("#sortable").sortable();
+$("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
 $(".ui-sortable-handle").css('-ms-touch-action','none').css('touch-action','none')
+
+var i = 0;
 
 for(i=0; i<favorites.length+1; i++){
     if(i===0){
