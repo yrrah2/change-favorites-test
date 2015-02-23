@@ -8,6 +8,7 @@ $("#favoriteOptionsBox").val(localStorage.favorites);
 
 var i = 0;
 var favList = [];
+var helpMessage = "Drag the boards to rearrange them.".appendTo(tab.content);
 
 for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
@@ -23,27 +24,20 @@ $(favList).appendTo(tab.content);
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
 
-//var textarea = $("<textarea></textarea>").css({
-//  "font-size": 12,
-//  position: "absolute",
-//  top: 35, bottom: 35,
-//  width: "calc(100% - 20px)", margin: 0, padding: "4px", border: "1px solid black",
-//  left: 5, right: 5
-//}).appendTo(tab.content);
-
 var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
     position: "absolute",
     height: 25, bottom: 5,
     width: "calc(100% - 10px)",
     left: 5, right: 5
 }).click(function() {
-    var favStor = $(".ui-sortable").html().replace("<li class=\"\" style=\"\">","<li>");
+    var favStor = $(".ui-sortable").html().replace("<li class=\"\" style=\"\">","<li>"); //Slowly transforming html list into localStorage.favorites format
     for(i=0; i<favorites.length-1; i++){
         favStor = favStor.replace("</li><li>","\",\"");
     };
     favStor = favStor.replace("</li>","");
     favStor = favStor.replace("<li>","");
     localStorage.favorites = "[\"" + favStor + "\"]"
+    document.location.reload();
 }).appendTo(tab.content);
 
 var apply_fav = function() {
@@ -64,14 +58,3 @@ var apply_fav = function() {
     $(proc); // Apply the script when the page fully loads
   }
 };
-
-//var update_textarea = function() {
-//  if (!localStorage.favorites) {
-//    textarea.text()}
-//  else {
-//    textarea.text(localStorage.favorites);
-//    apply_fav();
-//  }
-//};
-
-//update_textarea();
