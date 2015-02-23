@@ -34,7 +34,9 @@ var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
     var favStor = $(".ui-sortable").html().replace("<li class=\"\" style=\"\">","<li>"); //Slowly transforming html list into localStorage.favorites format
     for(i=0; i<favorites.length-1; i++){
         favStor = favStor.replace("</li><li>","\",\"");
+        favStor = favStor.replace("<span> / </span>","");
     }
+    
     favStor = favStor.replace("</li>","");
     favStor = favStor.replace("<li>","");
     localStorage.favorites = "[\"" + favStor + "\"]";
