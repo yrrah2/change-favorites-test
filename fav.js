@@ -13,10 +13,7 @@ for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
         favList = favList+"<ul id=\"sortable\">";
     }
-    
-    alert(i)
     favList = favList+"<li>"+favorites[i]+"</li>";
-    
     if(i==favorites.length){ //This triggers on last run of loop
         favList = favList+"</ul>";
     }
