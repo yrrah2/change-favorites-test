@@ -11,16 +11,13 @@ var favList = [];
 
 for(i=0; i<favorites.length+1; i++){
     if(i===0){
-        var favListStart = "<ul id=\"sortable\">";
-        $(favListStart).appendTo(favList);
+        favList = favList+"<ul id=\"sortable\">"
     }
     if(i>0){
-        var favBoards = "<li>"+favorites[i]+"</li>";
-        $(favBoards).appendTo(favList);
+        favList = favList+"<li>"+favorites[i]+"</li>"
     }
     if(i+1>favorites.length+1){
-        var favListEnd = "</ul>";
-        $(favListEnd).appendTo(favList);
+        favList = favList+"</ul>"
     }
 } //creating list of boards
 
