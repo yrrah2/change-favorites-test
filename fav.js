@@ -15,7 +15,7 @@ for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
         favList = favList+"<div id=\"sortable\">";
     }
-    favList = favList+"<div style=\"display: inline;\">"+favorites[i]+"<span>/</span></div>";
+    favList = favList+"<div style=\"display: inline;\">"+favorites[i]+"</div><span> / </span>";
     if(i==favorites.length){ //This triggers on last run of loop
         favList = favList+"</div>";
     }
