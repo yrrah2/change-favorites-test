@@ -31,14 +31,13 @@ var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
     width: "calc(100% - 10px)",
     left: 5, right: 5
 }).click(function() {
-    var favStor = $(".ui-sortable").html().replace("<li class=\"\" style=\"\">","<li>"); //Slowly transforming html list into localStorage.favorites format
+    var favStor = $(".ui-sortable").html().replace("<div style=\"display: inline;\">","<div>"); //Slowly transforming html list into localStorage.favorites format
     for(i=0; i<favorites.length-1; i++){
-        favStor = favStor.replace("</li><li>","\",\"");
-        favStor = favStor.replace("<span> / </span>","");
+        favStor = favStor.replace("</div><span> / </span><div class=\"\" style=\"display: inline;\">","\",\"");
     }
     
-    favStor = favStor.replace("</li>","");
-    favStor = favStor.replace("<li>","");
+    favStor = favStor.replace("</div>","");
+    favStor = favStor.replace("<div>","");
     localStorage.favorites = "[\"" + favStor + "\"]";
     document.location.reload();
 }).appendTo(tab.content);
