@@ -8,7 +8,8 @@ $("#favoriteOptionsBox").val(localStorage.favorites);
 
 var i = 0;
 var favList = [];
-var helpMessage = "Drag the boards to rearrange them.".appendTo(tab.content);
+var helpMessage = "Drag the boards to rearrange them.";
+helpMessage.appendTo(tab.content);
 
 for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
