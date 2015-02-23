@@ -33,7 +33,7 @@ $("#sortable").sortable(); //Making all objects with sortable id use the sortabl
 
 
 var favList = $(".ui-sortable").html().replace("<li class=\"\" style=\"\">","");
-for(i=0,i<favorites.length-1,i++){
+for(i=0; i<favorites.length-1; i++){
     favList = favList.replace("</li><li>",",");
 };
 
