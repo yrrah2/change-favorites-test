@@ -13,7 +13,7 @@ $(tab.content).append(helpMessage);
 
 for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
-        favList += "<div id=\"sortable\" style=\"display: inline-block\">";
+        favList += "<div id=\"sortable\" style=\"float: left;display: inline-block\">";
     }
     favList += "<div>"+favorites[i]+"</div>";
     if(i==favorites.length){ //This triggers on last run of loop
@@ -25,7 +25,7 @@ for(i=0; i<favorites.length; i++){
     if(i==0){
         minusList += "<div style=\"display: inline-block\">";
     }
-    minusList += "<div> - </div>";
+    minusList += "<div>\ -\ </div>";
     if(i==favorites.length){
         minusList += "</div>";
     }
