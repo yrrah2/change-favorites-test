@@ -21,7 +21,7 @@ var generateList = function(){
 };
 
 //localStorage.favorites
-var window.nTORemoveBoard = 1;//number of times remove board was run
+var nTORemoveBoard = 1; //number of times remove board was run
 var removeBoard = function(boardNumber){
     var newFavorites = JSON.parse(generateList());
     newFavorites.splice(boardNumber, 1);
