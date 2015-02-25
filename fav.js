@@ -30,7 +30,9 @@ for(i=0; i<favorites.length; i++){
         minusList += "</div>";
     }
 }
+
 $(favList).appendTo(tab.content);
+$(minusList).appendTo(tab.content);
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
 
