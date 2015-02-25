@@ -11,6 +11,29 @@ var helpMessage = "";
 helpMessage = "<span>Drag the boards to sort them.</span><br></br>";
 $(tab.content).append(helpMessage);
 
+var generateList = function(){
+    var favStor = $(".ui-sortable").html()
+    while(favStor.indexOf("<div class=\"\" style=\"\">")!=-1){ //If .indexOf returns -1 then the string is not there
+        favStor = favStor.replace("<div class=\"\" style=\"\">","<div>");
+    }
+    while(favStor.indexOf("</div><div>")!=-1){
+        favStor = favStor.replace("</div><div>","\",\"");
+    }
+    favStor = favStor.replace("</div>","");
+    favStor = favStor.replace("<div>","");
+    favStor = "[\"" + favStor + "\"]";
+    return favStor;
+};
+
+//localStorage.favorites
+
+var removeBoard = function(boardNumber){
+    var favorites = JSON.parse(generateList);
+    favorites.splice(favorites.boardNumber, 1);
+    favorites = JSON.stringify(favorites);
+    window.localStorage.favorites = favorites;
+};
+
 for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
         favList += "<div id=\"sortable\" style=\"cursor: pointer; float: left;display: inline-block\">";
@@ -25,7 +48,7 @@ for(i=0; i<favorites.length; i++){
     if(i==0){
         minusList += "<div style=\"display: inline-block\">";
     }
-    minusList += "<div id=\"favBoard"+i+"\" onclick=\"removeBoard("+i+")\" style=\"margin-left: 5px\">-</div>";
+    minusList += "<div id=\"favBoard"+i+"\" onclick=\"removeBoard("+i+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>";
     if(i==favorites.length){
         minusList += "</div>";
     }
@@ -42,16 +65,7 @@ var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
     width: "calc(100% - 10px)",
     left: 5, right: 5
 }).click(function() {
-    var favStor = $(".ui-sortable").html()
-    while(favStor.indexOf("<div class=\"\" style=\"\">")!=-1){ //If .indexOf returns -1 then the string is not there
-        favStor = favStor.replace("<div class=\"\" style=\"\">","<div>");
-    }
-    while(favStor.indexOf("</div><div>")!=-1){
-        favStor = favStor.replace("</div><div>","\",\"");
-    }
-    favStor = favStor.replace("</div>","");
-    favStor = favStor.replace("<div>","");
-    localStorage.favorites = "[\"" + favStor + "\"]";
+    localStorage.favorites = generateList();
     document.location.reload();
 }).appendTo(tab.content);
 
