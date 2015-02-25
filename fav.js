@@ -17,16 +17,6 @@ var generateList = function(){
         favStor.push($("#sortable > div:nth-child("+i+")").html());
     }
     favStor = JSON.stringify(favStor);
-//    var favStor = $(".ui-sortable").html()
-//    while(favStor.indexOf("<div class=\"\" style=\"\">")!=-1){ //If .indexOf returns -1 then the string is not there
-//        favStor = favStor.replace("<div class=\"\" style=\"\">","<div>");
-//    }
-//    while(favStor.indexOf("</div><div>")!=-1){
-//        favStor = favStor.replace("</div><div>","\",\"");
-//    }
-//    favStor = favStor.replace("</div>","");
-//    favStor = favStor.replace("<div>","");
-//    favStor = "[\"" + favStor + "\"]";
 	return favStor;
 };
 
@@ -36,9 +26,9 @@ var removeBoard = function(boardNumber){
     var newFavorites = JSON.parse(generateList());
     newFavorites.splice(boardNumber, 1);
     newFavorites = JSON.stringify(newFavorites);
+    $("#sortable > div:nth-child("+(boardNumber+1)+")").remove();
     window.localStorage.favorites = newFavorites;
     window.favorites = localStorage.favorites;
-    document.location.reload();
 };
 
 for(i=0; i<favorites.length; i++){
