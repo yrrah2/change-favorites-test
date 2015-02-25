@@ -31,8 +31,9 @@ var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
     width: "calc(100% - 10px)",
     left: 5, right: 5
 }).click(function() {
+    var favStor = $(".ui-sortable").html()
     while(favStor.indexOf("div")>0){
-        var favStor = $(".ui-sortable").html().replace("<div class=\"\" style=\"\">","<div>");
+        favStor = favStor.replace("<div class=\"\" style=\"\">","<div>");
         favStor = favStor.replace("</div><div>",",");
     }
     favStor = favStor.replace("</div>","");
