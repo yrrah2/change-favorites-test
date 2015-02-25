@@ -14,7 +14,7 @@ $(tab.content).append(helpMessage);
 var generateList = function(){
 	var favStor = [];
     for(i=1; i<favorites.length; i++){
-        favStor.push($("#sortable > div:nth-child("+(i-1)+")").html());
+        favStor.push($("#sortable > div:nth-child("+i+")").html());
     }
     favStor = JSON.stringify(favStor);
 	return favStor;
