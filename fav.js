@@ -16,7 +16,7 @@ var generateList = function(){
     for(i=1; i<favorites.length+1; i++){
         favStor.push($("#sortable > div:nth-child("+i+")").html());
     }
-    JSON.stringify(favStor);
+    favStor = JSON.stringify(favStor);
 //    var favStor = $(".ui-sortable").html()
 //    while(favStor.indexOf("<div class=\"\" style=\"\">")!=-1){ //If .indexOf returns -1 then the string is not there
 //        favStor = favStor.replace("<div class=\"\" style=\"\">","<div>");
