@@ -27,6 +27,7 @@ var removeBoard = function(boardNumber){
     newFavorites.splice(boardNumber, 1);
     newFavorites = JSON.stringify(newFavorites);
     $("#sortable > div:nth-child("+(boardNumber+1)+")").remove();
+    $("#minusList > div:nth-child("+(boardNumber+1)+")").remove();
     window.localStorage.favorites = newFavorites;
     window.favorites = localStorage.favorites;
 };
@@ -43,7 +44,7 @@ for(i=0; i<favorites.length; i++){
 
 for(i=0; i<favorites.length; i++){
     if(i==0){
-        minusList += "<div style=\"display: inline-block\">";
+        minusList += "<div id=\"minusList\" style=\"display: inline-block\">";
     }
     minusList += "<div id=\"delBoard"+i+"\" onclick=\"removeBoard("+i+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>";
     if(i==favorites.length){
