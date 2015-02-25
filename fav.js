@@ -28,7 +28,7 @@ var generateList = function(){
 //localStorage.favorites
 
 var removeBoard = function(boardNumber){
-    var favorites = JSON.parse(generateList);
+    var favorites = JSON.parse(generateList());
     favorites.splice(favorites.boardNumber, 1);
     favorites = JSON.stringify(favorites);
     window.localStorage.favorites = favorites;
