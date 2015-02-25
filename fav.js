@@ -3,24 +3,33 @@ load_js("//code.jquery.com/ui/1.11.3/jquery-ui.js");
 var favorites = JSON.parse(localStorage.favorites);
 
 var tab = Options.add_tab('fav-tab','star',_("Favorites"));
-$("#favoriteOptionsBox").val(localStorage.favorites);
 
 var i = 0;
 var favList = [];
+var minusList = [];
 var helpMessage = "";
 helpMessage = "<span>Drag the boards to sort them.</span>";
 $(tab.content).append(helpMessage);
 
 for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
-        favList = favList+"<div id=\"sortable\">";
+        favList += "<div id=\"sortable\">";
     }
-    favList = favList+"<div>"+favorites[i]+"</div>";
+    favList += "<div>"+favorites[i]+"</div>";
     if(i==favorites.length){ //This triggers on last run of loop
-        favList = favList+"</div>";
+        favList += "</div>";
     }
 } //creating list of boards
 
+for(i=0; i<favorites.length; i++){
+    if(i==0){
+        minusList += "<div>";
+    }
+    minusList += "<span> - </span>";
+    if(i==favorites.length){
+        minusList += "</div>";
+    }
+}
 $(favList).appendTo(tab.content);
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
