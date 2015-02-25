@@ -36,7 +36,7 @@ var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
         favStor = favStor.replace("<div class=\"\" style=\"\">","<div>");
     }
     while(favStor.indexOf("</div><div>")!=-1){
-        favStor = favStor.replace("</div><div>",",");
+        favStor = favStor.replace("</div><div>","\",\"");
     }
     favStor = favStor.replace("</div>","");
     favStor = favStor.replace("<div>","");
