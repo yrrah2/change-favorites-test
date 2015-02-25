@@ -8,7 +8,7 @@ var i = 0;
 var favList = [];
 var minusList = [];
 var helpMessage = "";
-helpMessage = "<span>Drag the boards to sort them.</span>";
+helpMessage = "<span>Drag the boards to sort them.</span><br></br>";
 $(tab.content).append(helpMessage);
 
 for(i=0; i<favorites.length; i++){
@@ -23,7 +23,7 @@ for(i=0; i<favorites.length; i++){
 
 for(i=0; i<favorites.length; i++){
     if(i==0){
-        minusList += "<div>";
+        minusList += "<div> style=\"display: inline-block\"";
     }
     minusList += "<div> - </div>";
     if(i==favorites.length){
