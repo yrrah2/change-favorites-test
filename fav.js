@@ -25,7 +25,7 @@ for(i=0; i<favorites.length; i++){
     if(i==0){
         minusList += "<div style=\"display: inline-block\">";
     }
-    minusList += "<div style=\"margin-left: 5px\">-</div>";
+    minusList += "<div id=\"favBoard"+i+"\" onclick=\"removeBoard("+i+")\" style=\"margin-left: 5px\">-</div>";
     if(i==favorites.length){
         minusList += "</div>";
     }
