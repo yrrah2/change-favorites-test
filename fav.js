@@ -28,10 +28,11 @@ var generateList = function(){
 //localStorage.favorites
 
 var removeBoard = function(boardNumber){
-    var favorites = JSON.parse(generateList());
-    favorites.splice(favorites.boardNumber, 1);
-    favorites = JSON.stringify(favorites);
-    window.localStorage.favorites = favorites;
+    var newFavorites = JSON.parse(generateList());
+    newFavorites.splice(boardNumber, 1);
+    newFavorites = JSON.stringify(newFavorites);
+    window.localStorage.favorites = newFavorites;
+    document.location.reload();
 };
 
 for(i=0; i<favorites.length; i++){
