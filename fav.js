@@ -21,15 +21,16 @@ var generateList = function(){
 };
 
 //localStorage.favorites
-
+var window.nTORemoveBoard = 1;//number of times remove board was run
 var removeBoard = function(boardNumber){
     var newFavorites = JSON.parse(generateList());
     newFavorites.splice(boardNumber, 1);
     newFavorites = JSON.stringify(newFavorites);
     $("#sortable > div:nth-child("+(boardNumber+1)+")").remove();
-    $("#minusList > div:nth-child("+(boardNumber+1)+")").remove();
+    $("#minusList > div:nth-child("+(nTORemoveBoard)+")").remove();
     window.localStorage.favorites = newFavorites;
     window.favorites = localStorage.favorites;
+    window.nTORemoveBoard += 1;
 };
 
 for(i=0; i<favorites.length; i++){
