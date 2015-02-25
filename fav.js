@@ -13,7 +13,7 @@ $(tab.content).append(helpMessage);
 
 var generateList = function(){
 	var favStor = [];
-    for(i=0; i<favorites.length; i++){
+    for(i=1; i<favorites.length+1; i++){
         favStor.push($("#sortable > div:nth-child("+i+")").html());
     }
     JSON.stringify(favStor);
