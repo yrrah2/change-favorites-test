@@ -1,4 +1,4 @@
-load_js("//code.jquery.com/ui/1.11.3/jquery-ui.js");
+load_js("//code.jquery.com/ui/1.11.3/jquery-ui.js"); //Making the dragging much smoother
 
 var favorites = JSON.parse(localStorage.favorites);
 
@@ -7,29 +7,30 @@ var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 var i = 0;
 var favList = [];
 var minusList = [];
-var helpMessage = "";
-helpMessage = "<span>Drag the boards to sort them.</span><br></br>";
+var helpMessage = "<span>Drag the boards to sort them.</span><br></br>";
 $(tab.content).append(helpMessage);
 
 var generateList = function(){
 	var favStor = [];
-    for(i=1; i<favorites.length; i++){
+    for(i=1; i<favorites.length+1; i++){
         favStor.push($("#sortable > div:nth-child("+i+")").html());
     }
 	return JSON.stringify(favStor);
 };
 
-//localStorage.favorites
-var nTORemoveBoard = 1; //number of times remove board was run
+//var nTORemoveBoard = 1; //number of times remove board was run
 var removeBoard = function(boardNumber){
-    var newFavorites = JSON.parse(generateList());
-    newFavorites.splice(boardNumber, 1);
-    newFavorites = JSON.stringify(newFavorites);
-    $("#sortable > div:nth-child("+(boardNumber+1)+")").remove();
+	favorites.splice(boardNumber, 1);
+	localStorage.favorites = JSON.stringify(favorites);
+	$("#sortable > div:nth-child("+(boardNumber+1)+")").remove();
+//    var newFavorites = JSON.parse(generateList());
+//    newFavorites.splice(boardNumber, 1);
+//    newFavorites = JSON.stringify(newFavorites);
+    
 //    $("#minusList > div:nth-child("+(nTORemoveBoard)+")").remove();
-    window.localStorage.favorites = newFavorites;
-    window.favorites = JSON.parse(localStorage.favorites);
-    window.nTORemoveBoard += 1;
+//    window.localStorage.favorites = newFavorites;
+//    window.favorites = JSON.parse(localStorage.favorites);
+//    window.nTORemoveBoard += 1;
 };
 
 for(i=0; i<favorites.length; i++){
@@ -47,13 +48,13 @@ for(i=0; i<favorites.length; i++){
         minusList += "<div id=\"minusList\" style=\"display: inline-block\">";
     }
     minusList += "<div id=\"delBoard"+i+"\" onclick=\"removeBoard("+i+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>";
-    if(i==favorites.length){
+    if(i==favorites.length){ //This triggers on last run of loop
         minusList += "</div>";
     }
 }
 
-$(favList).appendTo(tab.content);
-$(minusList).appendTo(tab.content);
+$(favList).appendTo(tab.content);  //Adding the list of favorite boards to the tab
+$(minusList).appendTo(tab.content); //Adding the list of minus symbols to the tab
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
 
@@ -66,22 +67,3 @@ var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
     localStorage.favorites = generateList();
     document.location.reload();
 }).appendTo(tab.content);
-
-var apply_fav = function() {
-  var proc = function() {
-    $('.fav-tab').remove();
-    $('script')
-      .last()
-      .after($("<script></script>")
-        .addClass("fav-tab")
-        .text(localStorage.favorites)
-      );
-  };
-
-  if (/immediate()/.test(localStorage.favorites)) {
-    proc(); // Apply the script immediately
-  }
-  else {
-    $(proc); // Apply the script when the page fully loads
-  }
-};
