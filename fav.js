@@ -47,7 +47,7 @@ for(i=0; i<favorites.length; i++){
         minusList += "</div>";
     }
 } //Creating list of minus symbols to remove unwanted boards
-var plusBox = $("<input id=\"plusBox\" type=\"text\">");
+var plusBox = $("<br></br><input id=\"plusBox\" type=\"text\">");
 var plus = $("<div onclick=\"addBoard()\">+</div>").css({
 	cursor: "pointer",
 	color: "#0000FF"
