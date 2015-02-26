@@ -13,18 +13,15 @@ $(tab.content).append(helpMessage);
 
 var generateList = function(){
 	var favStor = [];
-    for(i=1; i<afterFavorites.length; i++){
+    for(i=1; i<favorites.length; i++){
         favStor.push($("#sortable > div:nth-child("+i+")").html());
     }
-    favStor = JSON.stringify(favStor);
-	return favStor;
+	return JSON.stringify(favStor);
 };
 
 //localStorage.favorites
 var nTORemoveBoard = 1; //number of times remove board was run
 var removeBoard = function(boardNumber){
-	window.afterFavorites = favorites;
-	window.afterFavorites.splice(boardNumber, 1);
     var newFavorites = JSON.parse(generateList());
     newFavorites.splice(boardNumber, 1);
     newFavorites = JSON.stringify(newFavorites);
