@@ -27,12 +27,14 @@ var addBoard = function(){
 	$("#minusList").append("<div onclick=\"removeBoard("+favorites.length+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>");
 	favorites.push($("#plusBox").val());
 	localStorage.favorites = JSON.stringify(favorites);
+	$("#space").remove();
 	$("#plusBox").remove(); //Refreshing the last 3 elements to move the box down
 	$("#plus").remove();
 	$("#submitFavorites").remove();
+	$(space).appendTo(tab.content);
 	$(plusBox).appendTo(tab.content);
-	$(plus).appendTo(tab.content);
-	$(submit).appendTo(tab.content);
+	$(plus).appendTo(tab.content); //Adding the plus to the tab
+	$(submit).appendTo(tab.content); //Adding button to the tab
 };
 
 //Creating content
@@ -54,10 +56,9 @@ for(i=0; i<favorites.length; i++){
         minusList += "</div>";
     }
 } //Creating list of minus symbols to remove unwanted boards
-var space = $("<br></br>");
+var space = $("<br id=\"space\"></br>");
 var plusBox = $("<input id=\"plusBox\" type=\"text\">").keydown(function( event ) {
 if ( event.which == 13 ) {
-$(event).off(".preventDefault");
 $("#plus").click();
 }
 });
