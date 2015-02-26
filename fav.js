@@ -13,7 +13,7 @@ $(tab.content).append(helpMessage);
 
 var generateList = function(){
 	var favStor = [];
-    for(i=1; i<favorites.length; i++){
+    for(i=1; i<afterFavorites.length; i++){
         favStor.push($("#sortable > div:nth-child("+i+")").html());
     }
     favStor = JSON.stringify(favStor);
@@ -31,7 +31,7 @@ var removeBoard = function(boardNumber){
     $("#sortable > div:nth-child("+(boardNumber+1)+")").remove();
 //    $("#minusList > div:nth-child("+(nTORemoveBoard)+")").remove();
     window.localStorage.favorites = newFavorites;
-    window.favorites = localStorage.favorites;
+    window.favorites = JSON.parse(localStorage.favorites);
     window.nTORemoveBoard += 1;
 };
 
