@@ -59,7 +59,7 @@ var plusBox = $("<input id=\"plusBox\" type=\"text\">").keyup(function(event){
 	if(event.keyCode == 13){
 		$("#plus").click();
 	}
-);
+});
 var plus = $("<div id=\"plus\" onclick=\"addBoard()\">+</div>").css({
 	cursor: "pointer",
 	color: "#0000FF"
