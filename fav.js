@@ -35,12 +35,6 @@ var addBoard = function(){
 	$(submit).appendTo(tab.content);
 };
 
-$("#plusBox").keyup(function(event){
-    if(event.keyCode == 13){
-        $("#plus").click();
-    }
-});
-
 //Creating content
 for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
@@ -60,7 +54,12 @@ for(i=0; i<favorites.length; i++){
         minusList += "</div>";
     }
 } //Creating list of minus symbols to remove unwanted boards
-var plusBox = $("<br></br><input id=\"plusBox\" type=\"text\">");
+var plusBox = $("<br></br><input id=\"plusBox\" type=\"text\">").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#plus").click();
+    }
+});
+;
 var plus = $("<div id=\"plus\" onclick=\"addBoard()\">+</div>").css({
 	cursor: "pointer",
 	color: "#0000FF"
