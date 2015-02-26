@@ -34,10 +34,6 @@ var addBoard = function(){
 	$(plus).appendTo(tab.content);
 	$(submit).appendTo(tab.content);
 };
-var submitFavorites = function() {
-    localStorage.favorites = generateList();
-    document.location.reload();
-}; //This submits your changes and refreshed the page
 
 //Creating content
 for(i=0; i<favorites.length; i++){
@@ -63,7 +59,7 @@ var plus = $("<div onclick=\"addBoard()\">+</div>").css({
 	cursor: "pointer",
 	color: "#0000FF"
 }); //Creating plus symbol to add wanted boards
-var submit = $("<input id=\"submitFavorites\" onclick=\"submitFavorites()\" type=\"button\" value=\""+_("Update favorites")+"\">").css({
+var submit = $("<input id=\"submitFavorites\" onclick=\"document.location.reload();\" type=\"button\" value=\""+_("Refresh")+"\">").css({
     position: "absolute",
     height: 25, bottom: 5,
     width: "calc(100% - 10px)",
