@@ -15,17 +15,18 @@ var generateList = function(){
         favStor.push($("#sortable > div:nth-child("+i+")").html());
     }
 	return JSON.stringify(favStor);
-};
+}; //This will generate a list of boards based off of the list on the screen
 var removeBoard = function(boardNumber){
 	favorites.splice(boardNumber, 1);
 	localStorage.favorites = JSON.stringify(favorites);
 	$("#sortable > div:nth-child("+(boardNumber+1)+")").remove();
 	$("#minusList > div:nth-child("+(favorites.length+1)+")").remove();
-};
+}; //This removed a board from favorites, localStorage.favorites and the page
+var addBoard = function(){};
 var submitFavorites = function() {
     localStorage.favorites = generateList();
     document.location.reload();
-};
+}; //This submits your changes and refreshed the page
 
 //Creating content
 for(i=0; i<favorites.length; i++){
@@ -36,16 +37,20 @@ for(i=0; i<favorites.length; i++){
     if(i==favorites.length){ //This triggers on last run of loop
         favList += "</div>";
     }
-} //creating list of boards
+} //Creating list of boards
 for(i=0; i<favorites.length; i++){
     if(i==0){
-        minusList += "<div id=\"minusList\" style=\"display: inline-block\">";
+        minusList += "<div id=\"minusList\" style=\"color: #0000FF;display: inline-block\">";
     }
     minusList += "<div id=\"delBoard"+i+"\" onclick=\"removeBoard("+i+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>";
     if(i==favorites.length){ //This triggers on last run of loop
         minusList += "</div>";
     }
-}
+} //Creating list of minus symbols to remove unwanted boards
+var plus = $("<div onclick=\"addBoard\">+</div>").css({
+	cursor: pointer;
+	color: #0000FF;
+}); //Creating plus symbol to add wanted boards
 var submit = $("<input onclick=\"submitFavorites()\" type=\"button\" value=\""+_("Update favorites")+"\">").css({
     position: "absolute",
     height: 25, bottom: 5,
@@ -57,6 +62,7 @@ var submit = $("<input onclick=\"submitFavorites()\" type=\"button\" value=\""+_
 $(tab.content).append(helpMessage); //Adding the help message to the tab
 $(favList).appendTo(tab.content);  //Adding the list of favorite boards to the tab
 $(minusList).appendTo(tab.content); //Adding the list of minus symbols to the tab
+$(plus).appendTo(tab.content); //Adding the plus to the tab
 $(submit).appendTo(tab.content); //Adding button to the tab
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
