@@ -34,7 +34,7 @@ for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
         favList += "<div id=\"sortable\" style=\"cursor: pointer; float: left;display: inline-block\">";
     }
-    favList += "<div">"+favorites[i]+"</div>";
+    favList += "<div>"+favorites[i]+"</div>";
     if(i==favorites.length){ //This triggers on last run of loop
         favList += "</div>";
     }
