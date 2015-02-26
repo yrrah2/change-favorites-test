@@ -23,11 +23,12 @@ var generateList = function(){
 //localStorage.favorites
 var nTORemoveBoard = 1; //number of times remove board was run
 var removeBoard = function(boardNumber){
+	window.afterFavorites.splice(boardNumber, 1);
     var newFavorites = JSON.parse(generateList());
     newFavorites.splice(boardNumber, 1);
     newFavorites = JSON.stringify(newFavorites);
     $("#sortable > div:nth-child("+(boardNumber+1)+")").remove();
-    $("#minusList > div:nth-child("+(nTORemoveBoard)+")").remove();
+//    $("#minusList > div:nth-child("+(nTORemoveBoard)+")").remove();
     window.localStorage.favorites = newFavorites;
     window.favorites = localStorage.favorites;
     window.nTORemoveBoard += 1;
