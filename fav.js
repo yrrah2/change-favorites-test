@@ -51,11 +51,12 @@ var submit = $("<input onclick=\"submitFavorites()\" type=\"button\" value=\""+_
     height: 25, bottom: 5,
     width: "calc(100% - 10px)",
     left: 5, right: 5
-}).appendTo(tab.content);
+});
 
 //Adding content to the tab
-$(tab.content).append(helpMessage); //Adding the help message
+$(tab.content).append(helpMessage); //Adding the help message to the tab
 $(favList).appendTo(tab.content);  //Adding the list of favorite boards to the tab
 $(minusList).appendTo(tab.content); //Adding the list of minus symbols to the tab
+$(submit).appendTo(tab.content); //Adding button to the tab
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
