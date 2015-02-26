@@ -57,7 +57,7 @@ for(i=0; i<favorites.length; i++){
 var space = $("<br></br>");
 var plusBox = $("<input id=\"plusBox\" type=\"text\">").keydown(function( event ) {
 if ( event.which == 13 ) {
-event.off(".preventDefault");
+$(event).off(".preventDefault");
 $("#plus").click();
 }
 });
