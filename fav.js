@@ -24,7 +24,7 @@ var removeBoard = function(boardNumber){
 }; //This removed a board from favorites, localStorage.favorites and the page
 var addBoard = function(){
 	$("#sortable").append("<div>"+($("#plusBox").val())+"</div>");
-	$("#minusList").append("<div onclick=\"removeBoard("+(favorites.length+1)+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>");
+	$("#minusList").append("<div onclick=\"removeBoard("+((favorites.length)+1)+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>");
 	favorites += [,$("#plusBox").val()];
 	localStorage.favorites = JSON.stringify(favorites);
 	$("#plusBox").remove();
