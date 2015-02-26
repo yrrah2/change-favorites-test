@@ -23,11 +23,12 @@ var removeBoard = function(boardNumber){
 	favorites.splice(boardNumber, 1);
 	localStorage.favorites = JSON.stringify(favorites);
 	$("#sortable > div:nth-child("+(boardNumber+1)+")").remove();
+	$("#minusList > div:nth-child("+(favorites.length+1)+")").remove();
 //    var newFavorites = JSON.parse(generateList());
 //    newFavorites.splice(boardNumber, 1);
 //    newFavorites = JSON.stringify(newFavorites);
     
-//    $("#minusList > div:nth-child("+(nTORemoveBoard)+")").remove();
+//    
 //    window.localStorage.favorites = newFavorites;
 //    window.favorites = JSON.parse(localStorage.favorites);
 //    window.nTORemoveBoard += 1;
