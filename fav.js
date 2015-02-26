@@ -1,15 +1,14 @@
 load_js("//code.jquery.com/ui/1.11.3/jquery-ui.js"); //Making the dragging much smoother
 
+//Setting variables
 var favorites = JSON.parse(localStorage.favorites);
-
 var tab = Options.add_tab('fav-tab','star',_("Favorites"));
-
 var i = 0;
 var favList = [];
 var minusList = [];
 var helpMessage = "<span>Drag the boards to sort them.</span><br></br>";
-$(tab.content).append(helpMessage);
 
+//Setting functions
 var generateList = function(){
 	var favStor = [];
     for(i=1; i<favorites.length+1; i++){
@@ -17,14 +16,18 @@ var generateList = function(){
     }
 	return JSON.stringify(favStor);
 };
-
 var removeBoard = function(boardNumber){
 	favorites.splice(boardNumber, 1);
 	localStorage.favorites = JSON.stringify(favorites);
 	$("#sortable > div:nth-child("+(boardNumber+1)+")").remove();
 	$("#minusList > div:nth-child("+(favorites.length+1)+")").remove();
 };
+var submitFavorites = function() {
+    localStorage.favorites = generateList();
+    document.location.reload();
+};
 
+//Creating content
 for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
         favList += "<div id=\"sortable\" style=\"cursor: pointer; float: left;display: inline-block\">";
@@ -34,7 +37,6 @@ for(i=0; i<favorites.length; i++){
         favList += "</div>";
     }
 } //creating list of boards
-
 for(i=0; i<favorites.length; i++){
     if(i==0){
         minusList += "<div id=\"minusList\" style=\"display: inline-block\">";
@@ -44,18 +46,16 @@ for(i=0; i<favorites.length; i++){
         minusList += "</div>";
     }
 }
-
-$(favList).appendTo(tab.content);  //Adding the list of favorite boards to the tab
-$(minusList).appendTo(tab.content); //Adding the list of minus symbols to the tab
-
-$("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
-
-var submit = $("<input type='button' value='"+_("Update favorites")+"'>").css({
+var submit = $("<input onclick=\"submitFavorites()\" type=\"button\" value=\""+_("Update favorites")+"\">").css({
     position: "absolute",
     height: 25, bottom: 5,
     width: "calc(100% - 10px)",
     left: 5, right: 5
-}).click(function() {
-    localStorage.favorites = generateList();
-    document.location.reload();
 }).appendTo(tab.content);
+
+//Adding content to the tab
+$(tab.content).append(helpMessage); //Adding the help message
+$(favList).appendTo(tab.content);  //Adding the list of favorite boards to the tab
+$(minusList).appendTo(tab.content); //Adding the list of minus symbols to the tab
+
+$("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
