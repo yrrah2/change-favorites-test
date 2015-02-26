@@ -23,7 +23,14 @@ var removeBoard = function(boardNumber){
 	$("#minusList > div:nth-child("+(favorites.length+1)+")").remove();
 }; //This removed a board from favorites, localStorage.favorites and the page
 var addBoard = function(){
-	$("#sortable").append("<div>"+($("#plusBox").val())+"</div>")
+	$("#sortable").append("<div>"+($("#plusBox").val())+"</div>");
+	$("#minusList").append("<div onclick=\"removeBoard("+(favorites.length+1)+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>");
+	$("#plusBox").remove();
+	$("#plus").remove();
+	$("#submitFavorites").remove();
+	$(plusBox).appendTo(tab.content);
+	$(plus).appendTo(tab.content);
+	$(submit).appendTo(tab.content);
 };
 var submitFavorites = function() {
     localStorage.favorites = generateList();
@@ -44,7 +51,7 @@ for(i=0; i<favorites.length; i++){
     if(i==0){
         minusList += "<div id=\"minusList\" style=\"color: #0000FF;display: inline-block\">";
     }
-    minusList += "<div id=\"delBoard"+i+"\" onclick=\"removeBoard("+i+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>";
+    minusList += "<div onclick=\"removeBoard("+i+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>";
     if(i==favorites.length){ //This triggers on last run of loop
         minusList += "</div>";
     }
@@ -54,7 +61,7 @@ var plus = $("<div onclick=\"addBoard()\">+</div>").css({
 	cursor: "pointer",
 	color: "#0000FF"
 }); //Creating plus symbol to add wanted boards
-var submit = $("<input onclick=\"submitFavorites()\" type=\"button\" value=\""+_("Update favorites")+"\">").css({
+var submit = $("<input id=\"submitFavorites\" onclick=\"submitFavorites()\" type=\"button\" value=\""+_("Update favorites")+"\">").css({
     position: "absolute",
     height: 25, bottom: 5,
     width: "calc(100% - 10px)",
