@@ -22,7 +22,9 @@ var removeBoard = function(boardNumber){
 	$("#sortable > div:nth-child("+(boardNumber+1)+")").remove();
 	$("#minusList > div:nth-child("+(favorites.length+1)+")").remove();
 }; //This removed a board from favorites, localStorage.favorites and the page
-var addBoard = function(){};
+var addBoard = function(){
+	$(#sortable).append("<div"+($("#addBoard").val())+"</div>");
+};
 var submitFavorites = function() {
     localStorage.favorites = generateList();
     document.location.reload();
@@ -33,7 +35,7 @@ for(i=0; i<favorites.length; i++){
     if(i===0){ //This triggers on first run of loop
         favList += "<div id=\"sortable\" style=\"cursor: pointer; float: left;display: inline-block\">";
     }
-    favList += "<div id=\"favBoard"+i+"\">"+favorites[i]+"</div>";
+    favList += "<div">"+favorites[i]+"</div>";
     if(i==favorites.length){ //This triggers on last run of loop
         favList += "</div>";
     }
