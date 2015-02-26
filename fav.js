@@ -47,7 +47,8 @@ for(i=0; i<favorites.length; i++){
         minusList += "</div>";
     }
 } //Creating list of minus symbols to remove unwanted boards
-var plus = $("<div onclick=\"addBoard\">+</div>").css({
+var plusBox = $("<input id=\"plusBox\" type=\"text\"");
+var plus = $("<div onclick=\"addBoard()\">+</div>").css({
 	cursor: "pointer",
 	color: "#0000FF"
 }); //Creating plus symbol to add wanted boards
@@ -62,6 +63,7 @@ var submit = $("<input onclick=\"submitFavorites()\" type=\"button\" value=\""+_
 $(tab.content).append(helpMessage); //Adding the help message to the tab
 $(favList).appendTo(tab.content);  //Adding the list of favorite boards to the tab
 $(minusList).appendTo(tab.content); //Adding the list of minus symbols to the tab
+$(plusBox).appendTo(tab.content);
 $(plus).appendTo(tab.content); //Adding the plus to the tab
 $(submit).appendTo(tab.content); //Adding button to the tab
 
