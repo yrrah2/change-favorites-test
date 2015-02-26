@@ -48,8 +48,8 @@ for(i=0; i<favorites.length; i++){
     }
 } //Creating list of minus symbols to remove unwanted boards
 var plus = $("<div onclick=\"addBoard\">+</div>").css({
-	cursor: pointer,
-	color: #0000FF
+	cursor: "pointer",
+	color: "#0000FF"
 }); //Creating plus symbol to add wanted boards
 var submit = $("<input onclick=\"submitFavorites()\" type=\"button\" value=\""+_("Update favorites")+"\">").css({
     position: "absolute",
