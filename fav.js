@@ -59,7 +59,7 @@ var plusBox = $("<br></br><input id=\"plusBox\" type=\"text\">").keyup(function(
         $("#plus").click();
     }
 });
-;
+
 var plus = $("<div id=\"plus\" onclick=\"addBoard()\">+</div>").css({
 	cursor: "pointer",
 	color: "#0000FF"
