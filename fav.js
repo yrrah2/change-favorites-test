@@ -23,7 +23,7 @@ var removeBoard = function(boardNumber){
 	$("#minusList > div:nth-child("+(favorites.length+1)+")").remove();
 }; //This removed a board from favorites, localStorage.favorites and the page
 var addBoard = function(){
-	$(#sortable).append("<div"+($("#addBoard").val())+"</div>");
+	$(#sortable).append("<div>"+($("#addBoard").val())+"</div>");
 };
 var submitFavorites = function() {
     localStorage.favorites = generateList();
