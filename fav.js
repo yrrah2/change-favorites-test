@@ -57,11 +57,7 @@ for(i=0; i<favorites.length; i++){
     }
 } //Creating list of minus symbols to remove unwanted boards
 var space = $("<br id=\"space\"></br>");
-var plusBox = $("<input id=\"plusBox\" type=\"text\">").keydown(function( event ) {
-if ( event.which == 13 ) {
-$("#plus").click();
-}
-});
+var plusBox = $("<input id=\"plusBox\" type=\"text\">").keydown(function( event ) {});
 var plus = $("<div id=\"plus\" onclick=\"addBoard()\">+</div>").css({
 	cursor: "pointer",
 	color: "#0000FF"
@@ -72,6 +68,17 @@ var submit = $("<input id=\"submitFavorites\" onclick=\"document.location.reload
     width: "calc(100% - 10px)",
     left: 5, right: 5
 });
+
+function keyHandler() {
+    this.onkeydown = null;
+    if ( event.which == 13 ) {
+		$("#plus").click();
+	}
+}
+$(plusBox).onkeydown = keyHandler;
+$(plusBox).onkeyup = function() {
+    this.onkeydown = keyHandler;
+};
 
 //Adding content to the tab
 $(tab.content).append(helpMessage); //Adding the help message to the tab
