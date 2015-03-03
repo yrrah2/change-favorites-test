@@ -69,16 +69,13 @@ var submit = $("<input id=\"submitFavorites\" onclick=\"document.location.reload
     left: 5, right: 5
 });
 
-function keyHandler() {
-    $(this).keydown(null);
+$(plusBox).onkeydown = function(event){
+    event = event || window.event;
+    var keycode = event.charCode || event.keyCode;
     if ( event.which == 13 ) {
 		$("#plus").click();
 	}
 }
-$(plusBox).keydown(keyHandler());
-$(plusBox).onkeyup = function() {
-    $(this).keydown(keyHandler());
-};
 
 //Adding content to the tab
 $(tab.content).append(helpMessage); //Adding the help message to the tab
