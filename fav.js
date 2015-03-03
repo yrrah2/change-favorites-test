@@ -70,14 +70,14 @@ var submit = $("<input id=\"submitFavorites\" onclick=\"document.location.reload
 });
 
 function keyHandler() {
-    this.keydown(null);
+    $(this).keydown(null);
     if ( event.which == 13 ) {
 		$("#plus").click();
 	}
 }
 $(plusBox).keydown(keyHandler());
 $(plusBox).onkeyup = function() {
-    this.keydown(keyHandler());
+    $(this).keydown(keyHandler());
 };
 
 //Adding content to the tab
