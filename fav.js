@@ -75,9 +75,9 @@ function keyHandler() {
 		$("#plus").click();
 	}
 }
-$(plusBox).keydown(keyHandler);
+$(plusBox).keydown(keyHandler());
 $(plusBox).onkeyup = function() {
-    this.keydown(keyHandler);
+    this.keydown(keyHandler());
 };
 
 //Adding content to the tab
