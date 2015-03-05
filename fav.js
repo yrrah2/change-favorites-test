@@ -38,20 +38,21 @@ var addBoard = function(){
 };
 
 //Creating content
+
+//Creating list of boards
 favList += "<div id=\"sortable\" style=\"cursor: pointer; float: left;display: inline-block\">";
 for(i=0; i<favorites.length; i++){
     favList += "<div>"+favorites[i]+"</div>";
-} //Creating list of boards
-favList += "</div>";
+} 
+favList += "</div>"; 
+
+//Creating list of minus symbols to remove unwanted boards
+minusList += "<div id=\"minusList\" style=\"color: #0000FF;display: inline-block\">";
 for(i=0; i<favorites.length; i++){
-    if(i==0){
-        minusList += "<div id=\"minusList\" style=\"color: #0000FF;display: inline-block\">";
-    }
     minusList += "<div onclick=\"removeBoard("+i+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>";
-    if(i==favorites.length){ //This triggers on last run of loop
-        minusList += "</div>";
-    }
-} //Creating list of minus symbols to remove unwanted boards
+} 
+minusList += "</div>"; 
+
 var space = $("<br id=\"space\"></br>");
 var plusBox = $("<input id=\"plusBox\" type=\"text\">");
 var plus = $("<div id=\"plus\" onclick=\"addBoard()\">+</div>").css({
