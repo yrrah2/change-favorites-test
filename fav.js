@@ -66,13 +66,19 @@ var submit = $("<input id=\"submitFavorites\" onclick=\"document.location.reload
     left: 5, right: 5
 });
 
-$(plusBox).onkeydown = function(event){
-    event = event || window.event;
-    var keycode = event.charCode || event.keyCode;
-    if ( event.which == 13 ) {
-		$("#plus").click();
-	}
-}
+var test = document.getElementById('plusBox');
+
+test.onkeydown = function(e) {
+    if ( this.className === 'hold' ) { return false; }
+    this.className = 'hold';
+    if ( e.which == 13 ) {
+        addBoard();
+    }
+};
+
+test.onkeyup = function() {
+    this.className = '';
+};
 
 //Adding content to the tab
 $(tab.content).append(helpMessage); //Adding the help message to the tab
