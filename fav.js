@@ -41,7 +41,7 @@ function addBoard(){
 	$("#plusBox").focus(); //Moving cursor into text box again after refresh
 	$(plus).appendTo(tab.content); //Adding the plus to the tab
 	$(submit).appendTo(tab.content); //Adding button to the tab
-};
+}
 
 //Creating content
 
@@ -73,7 +73,7 @@ var submit = $("<input id=\"submitFavorites\" onclick=\"document.location.reload
 });
 $("#plusBox").keydown(function( event ) {
  if(event.keyCode == 13){
- 	$("#plus").click();
+ 	addBoad();
  }
 });
 
