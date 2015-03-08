@@ -33,6 +33,11 @@ var addBoard = function(){
 	$("#submitFavorites").remove();
 	$(space).appendTo(tab.content);
 	$(plusBox).appendTo(tab.content);
+	$("#plusBox").keydown(function( event ) {
+ 		if(event.keyCode == 13){
+ 			$("#plus").click();
+ 		}
+	});
 	$(plus).appendTo(tab.content); //Adding the plus to the tab
 	$(submit).appendTo(tab.content); //Adding button to the tab
 };
@@ -64,6 +69,11 @@ var submit = $("<input id=\"submitFavorites\" onclick=\"document.location.reload
     height: 25, bottom: 5,
     width: "calc(100% - 10px)",
     left: 5, right: 5
+});
+$("#plusBox").keydown(function( event ) {
+ if(event.keyCode == 13){
+ 	$("#plus").click();
+ }
 });
 
 //Adding content to the tab
