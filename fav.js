@@ -38,6 +38,7 @@ function addBoard(){
  			$("#plus").click();
  		}
 	}); //Adding enter to submit
+	document.getElementById("plusBox").value = ""; //Removing text from textbox
 	$("#plusBox").focus(); //Moving cursor into text box again after refresh
 	$(plus).appendTo(tab.content); //Adding the plus to the tab
 	$(submit).appendTo(tab.content); //Adding button to the tab
@@ -71,11 +72,7 @@ var submit = $("<input id=\"submitFavorites\" onclick=\"document.location.reload
     width: "calc(100% - 10px)",
     left: 5, right: 5
 });
-$("#plusBox").keydown(function( event ) {
- if(event.keyCode == 13){
- 	addBoad();
- }
-});
+
 
 //Adding content to the tab
 $(tab.content).append(helpMessage); //Adding the help message to the tab
@@ -83,6 +80,12 @@ $(favList).appendTo(tab.content);  //Adding the list of favorite boards to the t
 $(minusList).appendTo(tab.content); //Adding the list of minus symbols to the tab
 $(space).appendTo(tab.content);
 $(plusBox).appendTo(tab.content);
+$("#plusBox").keydown(function( event ) {
+ if(event.keyCode == 13){
+ 	addBoad();
+ }
+});
+document.getElementById("plusBox").value = "";
 $(plus).appendTo(tab.content); //Adding the plus to the tab
 $(submit).appendTo(tab.content); //Adding button to the tab
 
