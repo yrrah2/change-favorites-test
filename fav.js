@@ -22,7 +22,7 @@ var removeBoard = function(boardNumber){
 	$("#sortable > div:nth-child("+(boardNumber+1)+")").remove();
 	$("#minusList > div:nth-child("+(favorites.length+1)+")").remove();
 }; //This removed a board from favorites, localStorage.favorites and the page
-var addBoard = function(){
+void addBoard = function(){
 	$("#sortable").append("<div>"+($("#plusBox").val())+"</div>");
 	$("#minusList").append("<div onclick=\"removeBoard("+favorites.length+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>");
 	favorites.push($("#plusBox").val());
@@ -35,7 +35,7 @@ var addBoard = function(){
 	$(plusBox).appendTo(tab.content);
 	$("#plusBox").keydown(function( event ) {
  		if(event.keyCode == 13){
- 			addBoard();
+ 			$("#plus").click();
  		}
 	}); //Adding enter to submit
 	$("#plusBox").focus(); //Moving cursor into text box again after refresh
