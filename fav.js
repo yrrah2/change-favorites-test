@@ -82,7 +82,7 @@ $(space).appendTo(tab.content);
 $(plusBox).appendTo(tab.content);
 $("#plusBox").keydown(function( event ) {
  if(event.keyCode == 13){
- 	addBoad();
+ 	addBoard();
  }
 });
 document.getElementById("plusBox").value = "";
