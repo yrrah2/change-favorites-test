@@ -67,7 +67,6 @@ var plus = $("<div id=\"plus\" onclick=\"addBoard()\">+</div>").css({
 	color: "#0000FF"
 }); //Creating plus symbol to add wanted boards
 var submit = $("<input id=\"submitFavorites\" onclick=\"document.location.reload();\" type=\"button\" value=\""+_("Refresh")+"\">").css({
-    position: "absolute",
     height: 25, bottom: 5,
     width: "calc(100% - 10px)",
     left: 5, right: 5
