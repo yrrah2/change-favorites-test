@@ -35,9 +35,10 @@ var addBoard = function(){
 	$(plusBox).appendTo(tab.content);
 	$("#plusBox").keydown(function( event ) {
  		if(event.keyCode == 13){
- 			$("#plus").click();
+ 			addBoard();
  		}
-	});
+	}); //Adding enter to submit
+	$("#plusBox").focus(); //Moving cursor into text box again after refresh
 	$(plus).appendTo(tab.content); //Adding the plus to the tab
 	$(submit).appendTo(tab.content); //Adding button to the tab
 };
