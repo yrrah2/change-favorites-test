@@ -1,4 +1,6 @@
 # change-favorites-test
 
-![No Boards](http://a.pomf.se/rjowki.PNG)
-![Best Boards](http://a.pomf.se/rqikjx.PNG)
+![No Boards](/screenshots/noBoards.png)
+![Best Boards](/screenshots/bestBoards.png)
+![Deleting Boards](/screenshots/deletingBoards.png)
+![Rearranging Boards](/screenshots/movingBoards.png)
