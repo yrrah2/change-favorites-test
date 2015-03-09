@@ -1,3 +1,11 @@
+//Setting variables
+var favorites = JSON.parse(localStorage.favorites);
+var tab = Options.add_tab('fav-tab','star',_("Favorites"));
+var i = 0;
+var favList = [];
+var minusList = [];
+var helpMessage = "<span>Drag the boards to sort them.</span><br></br>";
+
 //Creating functions
 function generateList(){
 	var favStor = [];
@@ -33,18 +41,6 @@ function addBoard(){
 	$(plus).appendTo(tab.content); //Adding the plus to the tab
 	$(submit).appendTo(tab.content); //Adding button to the tab
 } //This adds the text inside the textbox to favorites, localStorage.favorites and the page
-
-//Need functions to remain global
-
-$(document).ready(function(){
-
-//Setting variables
-var favorites = JSON.parse(localStorage.favorites);
-var i = 0;
-var tab = Options.add_tab('fav-tab','star',_("Favorites"));
-var favList = [];
-var minusList = [];
-var helpMessage = "<span>Drag the boards to sort them.</span><br></br>";
 
 //Creating content
 
@@ -91,4 +87,3 @@ $(plus).appendTo(tab.content); //Adding the plus to the tab
 $(submit).appendTo(tab.content); //Adding button to the tab
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
-});
