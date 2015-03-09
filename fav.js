@@ -1,4 +1,4 @@
-function() {
++function() {
 
 //Setting variables
 var favorites = JSON.parse(localStorage.favorites);
