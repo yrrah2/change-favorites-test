@@ -3,7 +3,7 @@ $(document).ready(function(){
 var helpMessage = "<span>Drag the boards to sort them.</span><br></br>";
 
 
-$(tab.content).append(helpMessage); //Adding the help message to the tab
+$(window.tab.content).append(helpMessage); //Adding the help message to the tab
 });
 
 
