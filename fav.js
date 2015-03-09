@@ -1,6 +1,9 @@
 //Making as many functions and variables non-global
 $(document).ready(function(){
 var helpMessage = "<span>Drag the boards to sort them.</span><br></br>";
+
+
+$(tab.content).append(helpMessage); //Adding the help message to the tab
 });
 
 
@@ -89,7 +92,6 @@ var submit = $("<input id=\"submitFavorites\" onclick=\"localStorage.favorites=g
 
 
 //Adding content to the tab
-$(tab.content).append(helpMessage); //Adding the help message to the tab
 $(favList).appendTo(tab.content);  //Adding the list of favorite boards to the tab
 $(minusList).appendTo(tab.content); //Adding the list of minus symbols to the tab
 $(space).appendTo(tab.content);
