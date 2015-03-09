@@ -8,7 +8,7 @@ var helpMessage = "<span>Drag the boards to sort them.</span><br></br>";
 //Creating functions
 function generateList(){
 	var favStor = [];
-	for(i=1; i<JSON.parse(localStorage,favorites);.length+1; i++){
+	for(i=1; i<JSON.parse(localStorage.favorites);.length+1; i++){
   		favStor.push($("#sortable > div:nth-child("+i+")").html());
   	}
 	return JSON.stringify(favStor);
@@ -16,18 +16,18 @@ function generateList(){
 
 
 function removeBoard(boardNumber){
-	JSON.parse(localStorage,favorites);.splice(boardNumber, 1);
-	localStorage.JSON.parse(localStorage,favorites); = JSON.stringify(favorites);
+	JSON.parse(localStorage.favorites);.splice(boardNumber, 1);
+	localStorage.JSON.parse(localStorage.favorites); = JSON.stringify(favorites);
 	$("#sortable > div:nth-child("+(boardNumber+1)+")").remove();
-	$("#minusList > div:nth-child("+(JSON.parse(localStorage,favorites);.length+1)+")").remove();
-} //This removes a board from JSON.parse(localStorage,favorites);, localStorage.favorites and the page
+	$("#minusList > div:nth-child("+(JSON.parse(localStorage.favorites);.length+1)+")").remove();
+} //This removes a board from JSON.parse(localStorage.favorites);, localStorage.favorites and the page
 
 
 function addBoard(){
 	$("#sortable").append("<div>"+($("#plusBox").val())+"</div>");
-	$("#minusList").append("<div onclick=\"removeBoard("+JSON.parse(localStorage,favorites);.length+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>");
-	JSON.parse(localStorage,favorites);.push($("#plusBox").val());
-	localStorage.JSON.parse(localStorage,favorites); = JSON.stringify(favorites);
+	$("#minusList").append("<div onclick=\"removeBoard("+JSON.parse(localStorage.favorites);.length+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>");
+	JSON.parse(localStorage.favorites);.push($("#plusBox").val());
+	localStorage.JSON.parse(localStorage.favorites); = JSON.stringify(favorites);
 	$("#space").remove();
 	$("#plusBox").remove(); //Refreshing the last 3 elements to move the box down
 	$("#plus").remove();
@@ -43,20 +43,20 @@ function addBoard(){
 	$("#plusBox").focus(); //Moving cursor into text box again after refresh
 	$(plus).appendTo(tab.content); //Adding the plus to the tab
 	$(submit).appendTo(tab.content); //Adding button to the tab
-} //This adds the text inside the textbox to JSON.parse(localStorage,favorites);, localStorage.favorites and the page
+} //This adds the text inside the textbox to JSON.parse(localStorage.favorites);, localStorage.favorites and the page
 
 //Creating content
 
 //Creating list of boards
 favList += "<div id=\"sortable\" style=\"cursor: pointer; float: left;display: inline-block\">";
-for(i=0; i<JSON.parse(localStorage,favorites);.length; i++){
-	favList += "<div>"+JSON.parse(localStorage,favorites);[i]+"</div>";
+for(i=0; i<JSON.parse(localStorage.favorites);.length; i++){
+	favList += "<div>"+JSON.parse(localStorage.favorites);[i]+"</div>";
 } 
 favList += "</div>"; 
 
 //Creating list of minus symbols to remove unwanted boards
 minusList += "<div id=\"minusList\" style=\"color: #0000FF;display: inline-block\">";
-for(i=0; i<JSON.parse(localStorage,favorites);.length; i++){
+for(i=0; i<JSON.parse(localStorage.favorites);.length; i++){
 	minusList += "<div onclick=\"removeBoard("+i+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>";
 } 
 minusList += "</div>"; 
