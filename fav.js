@@ -42,7 +42,7 @@ function addBoard(){
 	$("<div id=\"plus\" onclick=\"addBoard()\">+</div>").css({
 		cursor: "pointer",
 		color: "#0000FF"
-	})).appendTo(tab.content); //Adding the plus to the tab
+	}).appendTo(tab.content); //Adding the plus to the tab
 	$("<input id=\"submitFavorites\" onclick=\"localStorage.favorites=generateList();document.location.reload();\" type=\"button\" value=\""+_("Refresh")+"\">").css({
 		height: 25, bottom: 5,
 		width: "calc(100% - 10px)",
@@ -69,10 +69,7 @@ minusList += "</div>";
 
 
 //Making as many functions and variables non-global
-$(document).ready(function(){
-$(tab.content).append("<span>Drag the boards to sort them.</span><br></br>"); //Adding the help message to the tab
-});
-
+$("<span>Drag the boards to sort them.</span><br></br>").appendTo(tab.content);
 
 
 $(favList).appendTo(tab.content);  //Adding the list of favorite boards to the tab
@@ -80,31 +77,25 @@ $(minusList).appendTo(tab.content); //Adding the list of minus symbols to the ta
 
 
 
-$(document).ready(function(){
-	$("<br id=\"space\"></br>").appendTo(tab.content);
-	$("<input id=\"plusBox\" type=\"text\">").appendTo(tab.content);
-	$("#plusBox").keydown(function( event ) {
-		if(event.keyCode == 13){
-			$("#plus").click();
-		}
-	});
-
-
-
-
-	document.getElementById("plusBox").value = "";
-	$("<div id=\"plus\" onclick=\"addBoard()\">+</div>").css({
-		cursor: "pointer",
-		color: "#0000FF"
-	}).appendTo(tab.content); //Adding the plus to the tab
-	$("<input id=\"submitFavorites\" onclick=\"localStorage.favorites=generateList();document.location.reload();\" type=\"button\" value=\""+_("Refresh")+"\">").css({
-		height: 25, bottom: 5,
-		width: "calc(100% - 10px)",
-		left: 5, right: 5
-	}).appendTo(tab.content); //Adding button to the tab
-	
-	$("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
-
-
-
+$("<br id=\"space\"></br>").appendTo(tab.content);
+$("<input id=\"plusBox\" type=\"text\">").appendTo(tab.content);
+$("#plusBox").keydown(function( event ) {
+	if(event.keyCode == 13){
+		$("#plus").click();
+	}
 });
+
+
+document.getElementById("plusBox").value = "";
+$("<div id=\"plus\" onclick=\"addBoard()\">+</div>").css({
+	cursor: "pointer",
+	color: "#0000FF"
+}).appendTo(tab.content); //Adding the plus to the tab
+$("<input id=\"submitFavorites\" onclick=\"localStorage.favorites=generateList();document.location.reload();\" type=\"button\" value=\""+_("Refresh")+"\">").css({
+	height: 25, bottom: 5,
+	width: "calc(100% - 10px)",
+	left: 5, right: 5
+}).appendTo(tab.content); //Adding button to the tab
+
+$("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
+
