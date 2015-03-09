@@ -1,7 +1,6 @@
 //Setting variables
 var favorites = JSON.parse(localStorage.favorites);
 var tab = Options.add_tab('fav-tab','star',_("Favorites"));
-var minusList = [];
 
 //Creating functions
 
@@ -46,12 +45,7 @@ function addBoard(){
 
 //Creating content
 
-//Creating list of minus symbols to remove unwanted boards
-minusList += "<div id=\"minusList\" style=\"color: #0000FF;display: inline-block\">";
-for(var i=0; i<favorites.length; i++){
-    minusList += "<div onclick=\"removeBoard("+i+")\" style=\"cursor: pointer; margin-left: 5px\">-</div>";
-} 
-minusList += "</div>"; 
+
 
 var space = $("<br id=\"space\"></br>");
 var plusBox = $("<input id=\"plusBox\" type=\"text\">");
@@ -67,7 +61,6 @@ var submit = $("<input id=\"submitFavorites\" onclick=\"localStorage.favorites=g
 
 
 //Adding content to the tab
-$(minusList).appendTo(tab.content); //Adding the list of minus symbols to the tab
 $(space).appendTo(tab.content);
 $(plusBox).appendTo(tab.content);
 $("#plusBox").keydown(function( event ) {
@@ -88,13 +81,21 @@ $(document).ready(function(){
 var helpMessage = "<span>Drag the boards to sort them.</span><br></br>"; //Generating help message
 
 
-var favList = ["<div id=\"sortable\" style=\"cursor: pointer; float: left;display: inline-block\">"];
+var favList = ['<div id="sortable" style="cursor: pointer; float: left;display: inline-block">'];
 for(var i=0; i<favorites.length; i++){
-    favList += "<div>"+favorites[i]+"</div>";
+    favList += '<div>'+favorites[i]+'</div>';
 } 
-favList += "</div>"; //Generating list of boards 
+favList += '</div>'; //Generating list of boards 
 
+
+//Creating list of minus symbols to remove unwanted boards
+var minusList = ['<div id="minusList" style="color: #0000FF;display: inline-block">'];
+for(var i=0; i<favorites.length; i++){
+    minusList += '<div onclick="removeBoard('+i+')" style="cursor: pointer; margin-left: 5px">-</div>';
+} 
+minusList += "</div>"; 
 
 $(tab.content).append(helpMessage); //Adding the help message to the tab
 $(favList).appendTo(tab.content);  //Adding the list of favorite boards to the tab
+$(minusList).appendTo(tab.content); //Adding the list of minus symbols to the tab
 });
