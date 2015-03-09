@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 //Setting variables
 var favorites = JSON.parse(localStorage.favorites);
 var i = 0;
@@ -87,3 +89,4 @@ $(plus).appendTo(tab.content); //Adding the plus to the tab
 $(submit).appendTo(tab.content); //Adding button to the tab
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
+});
