@@ -1,7 +1,6 @@
 //Setting variables
 var favorites = JSON.parse(localStorage.favorites);
 var tab = Options.add_tab('fav-tab','star',_("Favorites"));
-var favList = [];
 var minusList = [];
 
 //Creating functions
@@ -47,13 +46,6 @@ function addBoard(){
 
 //Creating content
 
-//Creating list of boards
-favList += "<div id=\"sortable\" style=\"cursor: pointer; float: left;display: inline-block\">";
-for(var i=0; i<favorites.length; i++){
-    favList += "<div>"+favorites[i]+"</div>";
-} 
-favList += "</div>"; 
-
 //Creating list of minus symbols to remove unwanted boards
 minusList += "<div id=\"minusList\" style=\"color: #0000FF;display: inline-block\">";
 for(var i=0; i<favorites.length; i++){
@@ -75,7 +67,6 @@ var submit = $("<input id=\"submitFavorites\" onclick=\"localStorage.favorites=g
 
 
 //Adding content to the tab
-$(favList).appendTo(tab.content);  //Adding the list of favorite boards to the tab
 $(minusList).appendTo(tab.content); //Adding the list of minus symbols to the tab
 $(space).appendTo(tab.content);
 $(plusBox).appendTo(tab.content);
@@ -94,8 +85,16 @@ $("#sortable").sortable(); //Making all objects with sortable id use the sortabl
 
 //Making as many functions and variables non-global
 $(document).ready(function(){
-var helpMessage = "<span>Drag the boards to sort them.</span><br></br>";
+var helpMessage = "<span>Drag the boards to sort them.</span><br></br>"; //Generating help message
+
+
+var favList = ["<div id=\"sortable\" style=\"cursor: pointer; float: left;display: inline-block\">"];
+for(var i=0; i<favorites.length; i++){
+    favList += "<div>"+favorites[i]+"</div>";
+} 
+favList += "</div>"; //Generating list of boards 
 
 
 $(tab.content).append(helpMessage); //Adding the help message to the tab
+$(favList).appendTo(tab.content);  //Adding the list of favorite boards to the tab
 });
