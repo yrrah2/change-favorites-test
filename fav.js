@@ -1,8 +1,9 @@
 +function() {
+var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 
+$(function() {
 //Setting variables
 var favorites = JSON.parse(localStorage.favorites);
-var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 var i = 0;
 var favList = [];
 var minusList = [];
@@ -90,4 +91,5 @@ $(submit).appendTo(tab.content); //Adding button to the tab
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
 
+});
 }();
