@@ -1,10 +1,7 @@
-+function() {
-var tab = Options.add_tab('fav-tab','star',_("Favorites"));
-
-$(function() {
 //Setting variables
 var favorites = JSON.parse(localStorage.favorites);
 var i = 0;
+var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 var favList = [];
 var minusList = [];
 var helpMessage = "<span>Drag the boards to sort them.</span><br></br>";
@@ -90,6 +87,3 @@ $(plus).appendTo(tab.content); //Adding the plus to the tab
 $(submit).appendTo(tab.content); //Adding button to the tab
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
-
-});
-}();
