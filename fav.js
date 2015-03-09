@@ -1,20 +1,3 @@
-//Making as many functions and variables non-global
-$(document).ready(function(){
-var helpMessage = "<span>Drag the boards to sort them.</span><br></br>";
-
-
-$(window.tab.content).append(helpMessage); //Adding the help message to the tab
-});
-
-
-
-
-
-
-
-
-
-
 //Setting variables
 var favorites = JSON.parse(localStorage.favorites);
 var tab = Options.add_tab('fav-tab','star',_("Favorites"));
@@ -106,3 +89,13 @@ $(plus).appendTo(tab.content); //Adding the plus to the tab
 $(submit).appendTo(tab.content); //Adding button to the tab
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
+
+
+
+//Making as many functions and variables non-global
+$(document).ready(function(){
+var helpMessage = "<span>Drag the boards to sort them.</span><br></br>";
+
+
+$(tab.content).append(helpMessage); //Adding the help message to the tab
+});
