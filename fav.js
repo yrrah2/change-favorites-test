@@ -31,7 +31,7 @@ function addBoard(){
 	$("#plus").remove();
 	$("#submitFavorites").remove();
 	$("<br id=\"space\"></br>").appendTo(tab.content);
-	$("<input id=\"plusBox\" type=\"text\">").appendTo(tab.content);
+	$("<input id=\"plusBox\" type=\"text\">").appendTo(Options.get_tab('fav-tab').content);
 	$("#plusBox").keydown(function( event ) {
  		if(event.keyCode == 13){
  			$("#plus").click();
