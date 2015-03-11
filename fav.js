@@ -77,8 +77,8 @@ $(minusList).appendTo(tab.content); //Adding the list of minus symbols to the ta
 
 
 
-$("<br id=\"space\"></br>").appendTo(tab.content);
-$("<input id=\"plusBox\" type=\"text\">").appendTo(tab.content);
+$("<br id=\"space\"></br>").appendTo(Options.get_tab('fav-tab').content);
+$("<input id=\"plusBox\" type=\"text\">").appendTo(Options.get_tab('fav-tab').content);
 $("#plusBox").keydown(function( event ) {
 	if(event.keyCode == 13){
 		$("#plus").click();
@@ -90,7 +90,7 @@ document.getElementById("plusBox").value = "";
 $("<div id=\"plus\" onclick=\"addBoard()\">+</div>").css({
 	cursor: "pointer",
 	color: "#0000FF"
-}).appendTo(tab.content); //Adding the plus to the tab
+}).appendTo(Options.get_tab('fav-tab').content); //Adding the plus to the tab
 $("<input id=\"submitFavorites\" onclick=\"localStorage.favorites=generateList();document.location.reload();\" type=\"button\" value=\""+_("Refresh")+"\">").css({
 	height: 25, bottom: 5,
 	width: "calc(100% - 10px)",
