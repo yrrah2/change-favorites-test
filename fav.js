@@ -1,6 +1,6 @@
 //Setting variables
 var favorites = JSON.parse(localStorage.favorites);
-var tab = Options.add_tab('fav-tab','star',_("Favorites"));
+Options.add_tab('fav-tab','star',_("Favorites"));
 
 //Creating functions
 
@@ -42,7 +42,7 @@ function addBoard(){
 	$("<div id=\"plus\" onclick=\"addBoard()\">+</div>").css({
 		cursor: "pointer",
 		color: "#0000FF"
-	}).appendTo(tab.content); //Adding the plus to the tab
+	}).appendTo(Options.get_tab('fav-tab').content); //Adding the plus to the tab
 	$("<input id=\"submitFavorites\" onclick=\"localStorage.favorites=generateList();document.location.reload();\" type=\"button\" value=\""+_("Refresh")+"\">").css({
 		height: 25, bottom: 5,
 		width: "calc(100% - 10px)",
@@ -69,6 +69,7 @@ minusList += "</div>";
 
 
 //Making as many functions and variables non-global
+
 $("<span>Drag the boards to sort them.</span><br></br>").appendTo(Options.get_tab('fav-tab').content);
 
 
