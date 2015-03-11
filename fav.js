@@ -50,7 +50,12 @@ function addBoard(){
 	}).appendTo(Options.get_tab('fav-tab').content); //Adding button to the tab
 } //This adds the text inside the textbox to favorites, localStorage.favorites and the page
 
-//Creating content
+//Adding content to the tab
+
+
+//Making as many functions and variables non-global
+
+$(document).ready(function(){
 
 var favList = ['<div id="sortable" style="cursor: pointer; float: left;display: inline-block">'];
 for(var i=0; i<favorites.length; i++){
@@ -65,12 +70,6 @@ for(var i=0; i<favorites.length; i++){
 } 
 minusList += "</div>"; 
 
-//Adding content to the tab
-
-
-//Making as many functions and variables non-global
-
-$(document).ready(function(){
 $("<span>Drag the boards to sort them.</span><br></br>").appendTo(Options.get_tab('fav-tab').content);
 
 
