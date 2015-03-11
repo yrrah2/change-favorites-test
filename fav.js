@@ -1,5 +1,6 @@
 //Setting variables
 var favorites = JSON.parse(localStorage.favorites);
+var tab = Options.add_tab('fav-tab','star',_("Favorites"));
 
 //Creating functions
 
@@ -29,8 +30,8 @@ function addBoard(){
 	$("#plusBox").remove(); //Refreshing the last 3 elements to move the box down
 	$("#plus").remove();
 	$("#submitFavorites").remove();
-	$("<br id=\"space\"></br>").appendTo(Options.get_tab('fav-tab').content);
-	$("<input id=\"plusBox\" type=\"text\">").appendTo(Options.get_tab('fav-tab').content);
+	$("<br id=\"space\"></br>").appendTo(tab.content);
+	$("<input id=\"plusBox\" type=\"text\">").appendTo(tab.content);
 	$("#plusBox").keydown(function( event ) {
  		if(event.keyCode == 13){
  			$("#plus").click();
@@ -41,12 +42,12 @@ function addBoard(){
 	$("<div id=\"plus\" onclick=\"addBoard()\">+</div>").css({
 		cursor: "pointer",
 		color: "#0000FF"
-	}).appendTo(Options.get_tab('fav-tab').content); //Adding the plus to the tab
+	}).appendTo(tab.content); //Adding the plus to the tab
 	$("<input id=\"submitFavorites\" onclick=\"localStorage.favorites=generateList();document.location.reload();\" type=\"button\" value=\""+_("Refresh")+"\">").css({
 		height: 25, bottom: 5,
 		width: "calc(100% - 10px)",
 		left: 5, right: 5
-	}).appendTo(Options.get_tab('fav-tab').content); //Adding button to the tab
+	}).appendTo(tab.content); //Adding button to the tab
 } //This adds the text inside the textbox to favorites, localStorage.favorites and the page
 
 //Creating content
@@ -68,16 +69,16 @@ minusList += "</div>";
 
 
 //Making as many functions and variables non-global
-$("<span>Drag the boards to sort them.</span><br></br>").appendTo(Options.get_tab('fav-tab').content);
+$("<span>Drag the boards to sort them.</span><br></br>").appendTo(tab.content);
 
 
-$(favList).appendTo(Options.get_tab('fav-tab').content);  //Adding the list of favorite boards to the tab
-$(minusList).appendTo(Options.get_tab('fav-tab').content); //Adding the list of minus symbols to the tab
+$(favList).appendTo(tab.content);  //Adding the list of favorite boards to the tab
+$(minusList).appendTo(tab.content); //Adding the list of minus symbols to the tab
 
 
 
-$("<br id=\"space\"></br>").appendTo(Options.get_tab('fav-tab').content);
-$("<input id=\"plusBox\" type=\"text\">").appendTo(Options.get_tab('fav-tab').content);
+$("<br id=\"space\"></br>").appendTo(tab.content);
+$("<input id=\"plusBox\" type=\"text\">").appendTo(tab.content);
 $("#plusBox").keydown(function( event ) {
 	if(event.keyCode == 13){
 		$("#plus").click();
@@ -89,12 +90,12 @@ document.getElementById("plusBox").value = "";
 $("<div id=\"plus\" onclick=\"addBoard()\">+</div>").css({
 	cursor: "pointer",
 	color: "#0000FF"
-}).appendTo(Options.get_tab('fav-tab').content); //Adding the plus to the tab
+}).appendTo(tab.content); //Adding the plus to the tab
 $("<input id=\"submitFavorites\" onclick=\"localStorage.favorites=generateList();document.location.reload();\" type=\"button\" value=\""+_("Refresh")+"\">").css({
 	height: 25, bottom: 5,
 	width: "calc(100% - 10px)",
 	left: 5, right: 5
-}).appendTo(Options.get_tab('fav-tab').content); //Adding button to the tab
+}).appendTo(tab.content); //Adding button to the tab
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
 
