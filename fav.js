@@ -70,6 +70,7 @@ minusList += "</div>";
 
 //Making as many functions and variables non-global
 
+$(document).ready(function(){
 $("<span>Drag the boards to sort them.</span><br></br>").appendTo(Options.get_tab('fav-tab').content);
 
 
@@ -100,3 +101,4 @@ $("<input id=\"submitFavorites\" onclick=\"localStorage.favorites=generateList()
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
 
+});
