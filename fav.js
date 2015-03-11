@@ -72,8 +72,8 @@ minusList += "</div>";
 $("<span>Drag the boards to sort them.</span><br></br>").appendTo(tab.content);
 
 
-$(favList).appendTo(tab.content);  //Adding the list of favorite boards to the tab
-$(minusList).appendTo(tab.content); //Adding the list of minus symbols to the tab
+$(favList).appendTo(Options.get_tab('fav-tab').content);  //Adding the list of favorite boards to the tab
+$(minusList).appendTo(Options.get_tab('fav-tab').content); //Adding the list of minus symbols to the tab
 
 
 
