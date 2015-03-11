@@ -69,7 +69,7 @@ minusList += "</div>";
 
 
 //Making as many functions and variables non-global
-$("<span>Drag the boards to sort them.</span><br></br>").appendTo(tab.content);
+$("<span>Drag the boards to sort them.</span><br></br>").appendTo(Options.get_tab('fav-tab').content);
 
 
 $(favList).appendTo(Options.get_tab('fav-tab').content);  //Adding the list of favorite boards to the tab
