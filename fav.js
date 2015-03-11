@@ -30,7 +30,7 @@ function addBoard(){
 	$("#plusBox").remove(); //Refreshing the last 3 elements to move the box down
 	$("#plus").remove();
 	$("#submitFavorites").remove();
-	$("<br id=\"space\"></br>").appendTo(tab.content);
+	$("<br id=\"space\"></br>").appendTo(Options.get_tab('fav-tab').content);
 	$("<input id=\"plusBox\" type=\"text\">").appendTo(Options.get_tab('fav-tab').content);
 	$("#plusBox").keydown(function( event ) {
  		if(event.keyCode == 13){
@@ -47,7 +47,7 @@ function addBoard(){
 		height: 25, bottom: 5,
 		width: "calc(100% - 10px)",
 		left: 5, right: 5
-	}).appendTo(tab.content); //Adding button to the tab
+	}).appendTo(Options.get_tab('fav-tab').content); //Adding button to the tab
 } //This adds the text inside the textbox to favorites, localStorage.favorites and the page
 
 //Creating content
