@@ -95,7 +95,7 @@ $("<input id=\"submitFavorites\" onclick=\"localStorage.favorites=generateList()
 	height: 25, bottom: 5,
 	width: "calc(100% - 10px)",
 	left: 5, right: 5
-}).appendTo(tab.content); //Adding button to the tab
+}).appendTo(Options.get_tab('fav-tab').content); //Adding button to the tab
 
 $("#sortable").sortable(); //Making all objects with sortable id use the sortable jquery function
 
